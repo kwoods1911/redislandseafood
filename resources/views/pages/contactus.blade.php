@@ -36,8 +36,5 @@
 </body>
 
 
-<script>
-
-</script>
 
 @stop

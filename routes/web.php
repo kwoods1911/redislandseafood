@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\QuoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/about', function() {
 });
 
 Route::get('/quote', function(){
-    return view('pages.requestquote');
+    return view('pages.quote');
 });
 
 Route::get('/contact', function(){
@@ -35,3 +36,5 @@ Route::get('/contact', function(){
 })->name('contact');
 
 Route::post('/store-contact',[ContactController::class,'store']);
+
+Route::post('/quote-submitted', [QuoteController::class,'store']);

@@ -10,8 +10,6 @@ class ContactController extends Controller
 {
     public function store(Request $request){
         // perform validation ?
-
-        
         $contacts = new Contacts;
         $contacts->customer_name = $request->contact_name;
         $contacts->customer_email = $request->contact_email;
@@ -23,13 +21,5 @@ class ContactController extends Controller
             $contacts->save();
             return redirect()->route('contact')->with('success', 'You message was successfully sent !');
         }
-        
-
-       
-
-
-       
-
-
     }
 }
