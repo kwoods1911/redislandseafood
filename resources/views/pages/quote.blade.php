@@ -6,15 +6,12 @@
 <body>
     <h1>Request Quote</h1>
 
-    <form action="/quote-submitted" method="post">
+    <form action="/quote-summary" method="post">
     @csrf
-
     <div class="form-group">
         <label for="">Company Name:</label>
         <input type="text" name="company_name">
     </div>
-
-
     <div class="form-group">
         <label for="">Company Email:</label>
         <input type="email" name="company_email">

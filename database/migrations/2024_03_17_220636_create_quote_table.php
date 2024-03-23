@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('quote', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('companyName');
+            $table->string('companyEmail');
+            $table->string('companyPhoneNumber');
+            $table->string('companyAddress');
+            $table->string('province');
+            $table->string('postalCode');
             $table->integer('minLobsterSizes')->nullable();
             $table->integer('maxLobsterSizes')->nullable();
             $table->integer('totalLiveLobsterPounds')->nullable();
@@ -21,17 +27,17 @@ return new class extends Migration
             $table->integer('frozenLobsterSize')->nullable();
             $table->integer('clamMeatPounds')->nullable();
             $table->integer('shrimpMeat')->nullable();
-            $table->string('companyName');
-            $table->string('companyEmail');
-            $table->string('companyPhoneNumber');
-            $table->string('companyAddress');
-            $table->string('province');
-            $table->string('postalCode');
-
-
-            
-            $table->string('totalCost');
-            $table->string('shippingAmount');
+            $table->double('liveLobsterUnitPrice')->nullable();
+            $table->double('frozenLobsterUnitPrice')->nullable();
+            $table->double('clamMeatUnitPrice')->nullable();
+            $table->double('shrimpMeatUnitPrice')->nullable();
+            $table->double('totalCostOfLiveLobster', 8, 2)->nullable();
+            $table->double('totalCostOfFrozenLobster', 8, 2)->nullable();
+            $table->double('totalCostOfClamMeat', 8, 2)->nullable();
+            $table->double('totalCostOfShrimp', 8, 2)->nullable();
+            $table->double('shippingCost', 8, 2)->nullable();
+            $table->double('subTotal', 8, 2)->nullable();
+            $table->double('finalCost', 8, 2)->nullable();
 
         });
     }
