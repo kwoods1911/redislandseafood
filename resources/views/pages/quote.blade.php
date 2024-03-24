@@ -5,13 +5,22 @@
 
 <body>
     <h1>Request Quote</h1>
-
+    @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <form action="/quote-summary" method="post">
     @csrf
     <div class="form-group">
         <label for="">Company Name:</label>
         <input type="text" name="company_name">
     </div>
+
     <div class="form-group">
         <label for="">Company Email:</label>
         <input type="email" name="company_email">
@@ -25,6 +34,11 @@
     <div class="form-group">
         <label for="">Company Address:</label>
         <input type="text" name="company_address">
+    </div>
+
+    <div class="form-group">
+        <label for="">City:</label>
+        <input type="text" name="company_city">
     </div>
 
     <div class="form-group">
@@ -57,6 +71,13 @@
         </select>
         <small>lbs</small>
         </div>
+
+        @if(session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show">
+                {{ session('error') }}
+                <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
 
         <div class="form-group">
             <label for="">Total Live Lobsters (Pounds):</label>

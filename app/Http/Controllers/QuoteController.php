@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Quote;
+use Illuminate\Support\Facades\Validator;
 
 class QuoteController extends Controller
 {
@@ -42,13 +44,40 @@ class QuoteController extends Controller
 
 //shrimp meat 9.50
 
-
     public function store(Request $request){
+
+          //Apply form validation
+    //conditions for failer ?
+    // if all pounds are empty ?
+    // if user doesnt enter company name, email, phone number address, city, province, postal code.
+    // if the min value  greater than the max value.
+    // min order quantity is 20 pounds for all items.
+  
+    $validator = Validator::make($request->all(), [
+        'company_name' => 'required|unique:posts|max:255',
+        'company_email' => 'required',
+        'company_address' => 'required',
+        'company_city' => 'required',
+        'company_province' => 'required',
+        'company_postal_code' => 'required'
+
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('/quote')
+                    ->withErrors($validator)
+                    ->withInput();
+    }
+
+    if(){
+        
+    }
 
     $quote = new Quote;
     $quote->companyName = $request->company_name;
     $quote->companyEmail = $request->company_email;
     $quote->companyAddress = $request->company_address;
+    $quote->companyCity = $request->company_city;
     $quote->companyPhoneNumber = $request->company_phone;
     $quote->province = $request->company_province;
     $quote->postalCode = $request->company_postal_code;
@@ -59,10 +88,10 @@ class QuoteController extends Controller
     $quote->totalLiveLobsterPounds = $request->total_live_lobster_pounds;
     $quote->totalFrozenLobsterPounds = $request->total_frozen_lobster_pounds;
     $quote->clamMeatPounds = $request->total_clam_pounds;
-    $quote->shrimpMeat = $request->total_shrimp_pounds;
+    $quote->shrimpMeatPounds = $request->total_shrimp_pounds;
 
     $quote->totalCostOfLiveLobster = $this->calculatePrice($this->determineLiveLobsterUnitPrice($request->total_live_lobster_pounds),$request->total_live_lobster_pounds);    
-    $quote->totalCostOfFrozenLobster = $this->calculatePrice($this->determineFrozenLobsterUnitPrice($request->total_clam_pounds),$request->total_clam_pounds);
+    $quote->totalCostOfFrozenLobster = $this->calculatePrice($this->determineFrozenLobsterUnitPrice($request->total_frozen_lobster_pounds),$request->total_frozen_lobster_pounds);
     $quote->totalCostOfClamMeat = $this->calculatePrice($this->determineClamMeatUnitPrice($request->total_clam_pounds),$request->total_clam_pounds);
     $quote->totalCostOfShrimp = $this->calculatePrice($this->determineShrimpMeatUnitPrice($request->total_shrimp_pounds),$request->total_shrimp_pounds);
     
@@ -80,6 +109,10 @@ class QuoteController extends Controller
 
     $quote->shippingCost = 300.00;
     $quote->finalCost =  $quote->subTotal + $quote->shippingCost;
+
+
+  
+    
 
     $quote->save();
 

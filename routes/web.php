@@ -29,7 +29,7 @@ Route::get('/about', function() {
 
 Route::get('/quote', function(){
     return view('pages.quote');
-});
+})->name('quote');
 
 Route::get('/contact', function(){
     return view('pages.contactus');

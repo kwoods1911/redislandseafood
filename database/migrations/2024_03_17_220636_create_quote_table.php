@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('companyEmail');
             $table->string('companyPhoneNumber');
             $table->string('companyAddress');
+            $table->string('companyCity');
             $table->string('province');
             $table->string('postalCode');
             $table->integer('minLobsterSizes')->nullable();
@@ -26,7 +27,7 @@ return new class extends Migration
             $table->integer('totalFrozenLobsterPounds')->nullable();
             $table->integer('frozenLobsterSize')->nullable();
             $table->integer('clamMeatPounds')->nullable();
-            $table->integer('shrimpMeat')->nullable();
+            $table->integer('shrimpMeatPounds')->nullable();
             $table->double('liveLobsterUnitPrice')->nullable();
             $table->double('frozenLobsterUnitPrice')->nullable();
             $table->double('clamMeatUnitPrice')->nullable();
