@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('content')
-
-
 <body>
     <h1>Request Quote</h1>
     @if($errors->any())
@@ -72,32 +70,48 @@
         <small>lbs</small>
         </div>
 
-        @if(session()->has('error'))
-            <div class="alert alert-danger alert-dismissible fade show">
-                {{ session('error') }}
-                <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
+
 
         <div class="form-group">
             <label for="">Total Live Lobsters (Pounds):</label>
             <input name="total_live_lobster_pounds" type="number" class="form-control">
         </div>
+        @if(session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show">
+                {{ session('error') }}
+                <!-- <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+            </div>
+        @endif
 
         <div class="form-group">
             <label for="">Total Frozen Lobsters (Pounds):</label>
             <input name="total_frozen_lobster_pounds" type="number" class="form-control">
         </div>
+        @if(session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show">
+                {{ session('error') }}
+            </div>
+        @endif
 
         <div class="form-group">
             <label for="">Total Clam Meat (Pounds):</label>
             <input name="total_clam_pounds" type="number" class="form-control">
         </div>
+        @if(session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show">
+                {{ session('error') }}
+            </div>
+        @endif
 
         <div class="form-group">
             <label for="">Total Shrimp Meat (Pounds):</label>
             <input name="total_shrimp_pounds" type="number" class="form-control">
         </div>
+        @if(session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show">
+                {{ session('error') }}
+            </div>
+        @endif
         
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

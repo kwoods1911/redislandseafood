@@ -46,32 +46,48 @@ class QuoteController extends Controller
 
     public function store(Request $request){
 
-          //Apply form validation
+    //Apply form validation
     //conditions for failer ?
     // if all pounds are empty ?
     // if user doesnt enter company name, email, phone number address, city, province, postal code.
     // if the min value  greater than the max value.
     // min order quantity is 20 pounds for all items.
-  
+ 
     $validator = Validator::make($request->all(), [
-        'company_name' => 'required|unique:posts|max:255',
+        'company_name' => 'required|max:255',
         'company_email' => 'required',
         'company_address' => 'required',
         'company_city' => 'required',
         'company_province' => 'required',
-        'company_postal_code' => 'required'
+        'company_postal_code' => 'required',
+        'min_lobster_size' => 'required',
+        'max_lobster_size' => 'required|gte:min_lobster_size',
+        'total_live_lobster_pounds' => 'gt:0|max:3000',
+        'total_frozen_lobster_pounds' => 'gt:0|max:3000',
+        'total_clam_pounds' => 'gt:0|max:3000',
+        'total_shrimp_pounds' => 'gt:0|max:3000'
 
     ]);
-
+    
     if ($validator->fails()) {
         return redirect('/quote')
                     ->withErrors($validator)
                     ->withInput();
     }
 
-    if(){
-        
-    }
+    // if pounds is greater than 0 but less than 20 throw error
+    
+    if($request->total_live_lobster_pounds > 0 || $request->total_live_lobster_pounds < 20)
+            return redirect()->route('quote')->with('error', 'Minimum amount of live lobsters is 20 pounds.');
+    //if total pounds is greater than 3000 throw error.
+    if($request->total_frozen_lobster_pounds > 0 || $request->total_frozen_lobster_pounds < 20)
+        return redirect()->route('quote')->with('error', 'Minimum amount of cooked lobsters is 20 pounds.');
+
+    if($request->total_clam_pounds > 0 || $request->total_clam_pounds < 20)
+        return redirect()->route('quote')->with('error', 'Minimum amount of calms is 20 pounds.');    
+
+    if($request->total_shrimp_pounds > 0 || $request->total_shrimp_pounds < 20)
+        return redirect()->route('quote')->with('error', 'Minimum amount of shrimp is 20 pounds.');     
 
     $quote = new Quote;
     $quote->companyName = $request->company_name;
