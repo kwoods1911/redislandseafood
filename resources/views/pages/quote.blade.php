@@ -52,7 +52,6 @@
 
         <div class="form-group">
             <label for="">Lobster Range</label>
-            <!-- <input name="min_lobster_size" type="number" class="form-control"> -->
             <select name="min_lobster_size">
                 <option value="1">1 lbs</option>
                 <option value="1.5">1.5 lbs</option>
@@ -70,8 +69,6 @@
         <small>lbs</small>
         </div>
 
-
-
         <div class="form-group">
             <label for="">Total Live Lobsters (Pounds):</label>
             <input name="total_live_lobster_pounds" type="number" class="form-control">
@@ -79,7 +76,6 @@
         @if(session()->has('error'))
             <div class="alert alert-danger alert-dismissible fade show">
                 {{ session('error') }}
-                <!-- <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
             </div>
         @endif
 
@@ -87,6 +83,7 @@
             <label for="">Total Frozen Lobsters (Pounds):</label>
             <input name="total_frozen_lobster_pounds" type="number" class="form-control">
         </div>
+
         @if(session()->has('error'))
             <div class="alert alert-danger alert-dismissible fade show">
                 {{ session('error') }}
@@ -97,6 +94,7 @@
             <label for="">Total Clam Meat (Pounds):</label>
             <input name="total_clam_pounds" type="number" class="form-control">
         </div>
+
         @if(session()->has('error'))
             <div class="alert alert-danger alert-dismissible fade show">
                 {{ session('error') }}

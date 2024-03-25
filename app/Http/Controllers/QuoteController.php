@@ -74,19 +74,17 @@ class QuoteController extends Controller
                     ->withErrors($validator)
                     ->withInput();
     }
-
-    // if pounds is greater than 0 but less than 20 throw error
     
-    if($request->total_live_lobster_pounds > 0 || $request->total_live_lobster_pounds < 20)
+    if($request->total_live_lobster_pounds > 0 && $request->total_live_lobster_pounds < 20)
             return redirect()->route('quote')->with('error', 'Minimum amount of live lobsters is 20 pounds.');
-    //if total pounds is greater than 3000 throw error.
-    if($request->total_frozen_lobster_pounds > 0 || $request->total_frozen_lobster_pounds < 20)
+
+    if($request->total_frozen_lobster_pounds > 0 && $request->total_frozen_lobster_pounds < 20)
         return redirect()->route('quote')->with('error', 'Minimum amount of cooked lobsters is 20 pounds.');
 
-    if($request->total_clam_pounds > 0 || $request->total_clam_pounds < 20)
+    if($request->total_clam_pounds > 0 && $request->total_clam_pounds < 20)
         return redirect()->route('quote')->with('error', 'Minimum amount of calms is 20 pounds.');    
 
-    if($request->total_shrimp_pounds > 0 || $request->total_shrimp_pounds < 20)
+    if($request->total_shrimp_pounds > 0 && $request->total_shrimp_pounds < 20)
         return redirect()->route('quote')->with('error', 'Minimum amount of shrimp is 20 pounds.');     
 
     $quote = new Quote;
@@ -126,17 +124,11 @@ class QuoteController extends Controller
     $quote->shippingCost = 300.00;
     $quote->finalCost =  $quote->subTotal + $quote->shippingCost;
 
-
-  
-    
-
     $quote->save();
 
 
     return view('pages.quote-summary',  ['information' => $quote]);
 
-    // redirect to page stating that the quote was sucessful submitted.
-    //Send quote to customer via email
     }
 
 
