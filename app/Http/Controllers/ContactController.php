@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contacts;
 
+use App\Mail\SendMail;
+use App\Mail\SendMessageToEndUser;
+use Mail;
+
 
 class ContactController extends Controller
 {
@@ -17,9 +21,29 @@ class ContactController extends Controller
 
         if($request->contact_email !== $request->contact_email_confirmation){
             return redirect()->route('contact')->with('error', 'The emails do not match .');
-        }else {
-            $contacts->save();
-            return redirect()->route('contact')->with('success', 'You message was successfully sent !');
         }
+
+
+        //Send mail to user.
+        //If mail successfully sent then.
+
+        $name = $request->contact_name;
+        $email = $request->contact_email;
+        $message = $request->contact_message;
+
+
+        $mailData = [
+            'url' => 'https://sandroft.com/'
+        ];
+        $send_mail = "khariwoods3@gmail.com";
+        Mail::to($send_mail)->send(new SendMail($name,$email,$message));
+
+        $senderMessage = "Thanks for your message we will reply within 24 hours.";
+
+        Mail::to($email)->send(new SendMessageToEndUser($name,$senderMessage,$mailData));
+
+        $contacts->save();
+        return redirect()->route('contact')->with('success', 'You message was successfully sent !');
+        // Send mail first
     }
 }

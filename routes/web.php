@@ -39,6 +39,7 @@ Route::get('/contact', function(){
 
 Route::post('/store-contact',[ContactController::class,'store']);
 
+
 Route::post('/quote-summary', [QuoteController::class,'store']);
 
 Route::get('/generate-pdf/{id}',[PDFController::class, 'generateQuotePDF']);
