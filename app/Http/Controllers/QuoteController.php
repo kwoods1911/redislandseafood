@@ -126,6 +126,7 @@ class QuoteController extends Controller
 
     $quote->save();
 
+    
 
     return view('pages.quote-summary',  ['information' => $quote]);
 

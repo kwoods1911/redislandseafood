@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QuoteController;
 
+use App\Http\Controllers\PDFController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +40,5 @@ Route::get('/contact', function(){
 Route::post('/store-contact',[ContactController::class,'store']);
 
 Route::post('/quote-summary', [QuoteController::class,'store']);
+
+Route::get('/generate-pdf/{id}',[PDFController::class, 'generateQuotePDF']);

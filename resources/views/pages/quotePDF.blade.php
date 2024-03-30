@@ -1,13 +1,13 @@
-@extends('layout.default')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Quote: {{ $id }}</title>
+</head>
 <body>
-<div>
-    <span>
-        LOGO
-        <img src="#" alt="">
-    </span>
-</div>
+
 <div>
     <h1>Quote Summary</h1>
     <div class="container">
@@ -40,23 +40,24 @@
                         <tr>
                             <th>Ship To: </th>
                         </tr>
+
                         <tr>
-                            <td>{{$information->companyName}}</td>
+                            <td>{{$companyName}}</td>
                         </tr>
                         <tr>
-                             <td>{{$information->companyEmail}}</td>
+                             <td>{{$companyEmail}}</td>
                         </tr>
                         <tr>
-                            <td>{{$information->companyAddress}} </td>
+                            <td>{{$companyAddress}} </td>
                         </tr>
                         <tr>
-                            <td>{{$information->companyCity}}, {{$information->province}}, {{$information->postalCode}}</td>
+                            <td>{{$companyCity}}, {{$province}}, {{$postalCode}}</td>
                         </tr>
                         <tr>
-                            <td>Phone: {{$information->companyPhoneNumber}}</td>
+                            <td>Phone: {{$companyPhoneNumber}}</td>
                         </tr>
                     </table>
-            </div>
+                    </div>
         </div>
     <!-- Ship To -->
     </div>
@@ -70,44 +71,47 @@
                 <th>Unit Price</th>
                 <th>Total</th>
             </tr>
-            <!-- apply -->
-            @if($information->totalLiveLobsterPounds > 0)
+
+            @if($totalLiveLobsterPounds > 0)
             <tr>
                 <td>1</td>
-                <td>Live Lobster ({{$information->minLobsterSizes}} lbs - {{$information->maxLobsterSizes}} lbs )</td>
-                <td>{{$information->totalLiveLobsterPounds}}</td>
-                <td>{{$information->liveLobsterUnitPrice}}</td>
-                <td>{{$information->totalCostOfLiveLobster}}</td>
+                <td>Live Lobster ({{$minLobsterSizes}} lbs - {{$maxLobsterSizes}} lbs )</td>
+                <td>{{$totalLiveLobsterPounds}}</td>
+                <td>{{$liveLobsterUnitPrice}}</td>
+                <td> $ {{$totalCostOfLiveLobster}}</td>
             </tr>
             @endif
 
-            @if($information->totalFrozenLobsterPounds > 0)
+
+            @if($totalFrozenLobsterPounds > 0)
             <tr>
                 <td>2</td>
                 <td>Cooked Lobster </td>
-                <td>{{$information->totalFrozenLobsterPounds}}</td>
-                <td>{{$information->frozenLobsterUnitPrice}}</td>
-                <td>{{$information->totalCostOfFrozenLobster}}</td>
-            </tr>
-            @endif
-            
-            @if($information->clamMeatPounds > 0)
-            <tr>
-                <td>3</td>
-                <td>Clam Meat</td>
-                <td>{{$information->clamMeatPounds}}</td>
-                <td>{{$information->clamMeatUnitPrice}}</td>
-                <td>{{$information->totalCostOfClamMeat}}</td>
+                <td>{{$totalFrozenLobsterPounds}}</td>
+                <td>{{$frozenLobsterUnitPrice}}</td>
+                <td>{{$totalCostOfFrozenLobster}}</td>
             </tr>
             @endif
 
-            @if($information->shrimpMeatPounds > 0)
+
+
+            @if($clamMeatPounds > 0)
+            <tr>
+                <td>3</td>
+                <td>Clam Meat</td>
+                <td>{{$clamMeatPounds}}</td>
+                <td>{{$clamMeatUnitPrice}}</td>
+                <td> $ {{$totalCostOfClamMeat}}</td>
+            </tr>
+            @endif
+
+            @if($shrimpMeatPounds > 0)
             <tr>
                 <td>4</td>
                 <td>Shrimp Meat</td>
-                <td>{{$information->shrimpMeatPounds}}</td>
-                <td>{{$information->shrimpMeatUnitPrice}}</td>
-                <td>{{$information->totalCostOfShrimp}}</td>
+                <td>{{$shrimpMeatPounds}}</td>
+                <td>{{$shrimpMeatUnitPrice}}</td>
+                <td>$ {{$totalCostOfShrimp}}</td>
             </tr>
             @endif
 
@@ -124,8 +128,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td> $ {{$information->shippingCost}}</td>
-                <td> $ {{$information->subTotal}}</td>
+                <td> $ {{$shippingCost}}</td>
+                <td> $ {{$subTotal}}</td>
             </tr>
             <tr>
                 <th></th>
@@ -140,18 +144,18 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>$ {{$information->finalCost}}</td>
-            </tr>
-        </table>
-    </div>
-    
-    
-       
-    <form action="/generate-pdf" method="get">
-        @csrf
-        <input type="hidden" name="id" value="{{ $information->id }}">
-        <button id="quoteButton" type="submit" name='quote' class="btn btn-primary"> Download Copy</button>
-    </form>
+                <td>$ {{$finalCost}}</td>
+            </tr>        
+    </table>
 </div>
+
+<footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</footer>
+
+
 </body>
-@stop
+
+</html>
+
+
