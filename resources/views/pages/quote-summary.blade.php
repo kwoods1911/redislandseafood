@@ -159,6 +159,10 @@
     <a href="{{ route('quote') }}">
         <button class="btn btn-primary"><< Go Back</button>
     </a>
+
+    <a href="{{ route('route.quote-submitted', ['lobsterInformation' => $information]) }}">
+    <button>Submit</button>
+    </a>
 </div>
 </body>
 @stop
