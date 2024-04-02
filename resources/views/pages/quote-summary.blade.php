@@ -41,19 +41,19 @@
                             <th>Ship To: </th>
                         </tr>
                         <tr>
-                            <td>{{$information->companyName}}</td>
+                            <td>{{$information['company_name']}}</td>
                         </tr>
                         <tr>
-                             <td>{{$information->companyEmail}}</td>
+                             <td>{{$information['company_email']}}</td>
                         </tr>
                         <tr>
-                            <td>{{$information->companyAddress}} </td>
+                            <td>{{$information['company_address']}} </td>
                         </tr>
                         <tr>
-                            <td>{{$information->companyCity}}, {{$information->province}}, {{$information->postalCode}}</td>
+                            <td>{{$information['company_city']}}, {{$information['company_province']}}, {{$information['company_postal_code']}}</td>
                         </tr>
                         <tr>
-                            <td>Phone: {{$information->companyPhoneNumber}}</td>
+                            <td>Phone: {{$information['company_phone']}}</td>
                         </tr>
                     </table>
             </div>
@@ -71,43 +71,43 @@
                 <th>Total</th>
             </tr>
             <!-- apply -->
-            @if($information->totalLiveLobsterPounds > 0)
+            @if($information['total_live_lobster_pounds'] > 0)
             <tr>
                 <td>1</td>
-                <td>Live Lobster ({{$information->minLobsterSizes}} lbs - {{$information->maxLobsterSizes}} lbs )</td>
-                <td>{{$information->totalLiveLobsterPounds}}</td>
-                <td>{{$information->liveLobsterUnitPrice}}</td>
-                <td>{{$information->totalCostOfLiveLobster}}</td>
+                <td>Live Lobster ({{$information['min_lobster_size']}} lbs - {{$information['max_lobster_size']}} lbs )</td>
+                <td>{{$information['total_live_lobster_pounds']}}</td>
+                <td>{{$information['live_lobster_unit_price']}}</td>
+                <td>{{$information['total_cost_of_live_lobster']}}</td>
             </tr>
             @endif
 
-            @if($information->totalFrozenLobsterPounds > 0)
+            @if($information['total_frozen_lobster_pounds'] > 0)
             <tr>
                 <td>2</td>
                 <td>Cooked Lobster </td>
-                <td>{{$information->totalFrozenLobsterPounds}}</td>
-                <td>{{$information->frozenLobsterUnitPrice}}</td>
-                <td>{{$information->totalCostOfFrozenLobster}}</td>
+                <td>{{$information['total_frozen_lobster_pounds']}}</td>
+                <td>{{$information['frozen_lobster_unit_price']}}</td>
+                <td>{{$information['total_cost_of_frozen_lobster']}}</td>
             </tr>
             @endif
             
-            @if($information->clamMeatPounds > 0)
+            @if($information['total_clam_pounds'] > 0)
             <tr>
                 <td>3</td>
                 <td>Clam Meat</td>
-                <td>{{$information->clamMeatPounds}}</td>
-                <td>{{$information->clamMeatUnitPrice}}</td>
-                <td>{{$information->totalCostOfClamMeat}}</td>
+                <td>{{$information['total_clam_pounds']}}</td>
+                <td>{{$information['clam_meat_unit_price']}}</td>
+                <td>{{$information['total_cost_of_clam_meat']}}</td>
             </tr>
             @endif
 
-            @if($information->shrimpMeatPounds > 0)
+            @if($information['total_cost_of_shrimp'] > 0)
             <tr>
                 <td>4</td>
                 <td>Shrimp Meat</td>
-                <td>{{$information->shrimpMeatPounds}}</td>
-                <td>{{$information->shrimpMeatUnitPrice}}</td>
-                <td>{{$information->totalCostOfShrimp}}</td>
+                <td>{{$information['total_cost_of_shrimp']}}</td>
+                <td>{{$information['shrimp_meat_unit_price']}}</td>
+                <td>{{$information['total_cost_of_shrimp']}}</td>
             </tr>
             @endif
 
@@ -124,8 +124,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td> $ {{$information->shippingCost}}</td>
-                <td> $ {{$information->subTotal}}</td>
+                <td> $ {{$information['shipping']}}</td>
+                <td> $ {{$information['sub_total']}}</td>
             </tr>
             <tr>
                 <th></th>
@@ -140,7 +140,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>$ {{$information->finalCost}}</td>
+                <td>$ {{$information['final_cost']}}</td>
             </tr>
         </table>
     </div>
@@ -149,9 +149,16 @@
        
     <form action="/generate-pdf" method="get">
         @csrf
-        <input type="hidden" name="id" value="{{ $information->id }}">
+        <input type="hidden" name="id" value="{{ $information }}">
         <button id="quoteButton" type="submit" name='quote' class="btn btn-primary"> Download Copy</button>
     </form>
+    
+    
+    <!-- Add button to go back -->
+
+    <a href="{{ route('quote') }}">
+        <button class="btn btn-primary"><< Go Back</button>
+    </a>
 </div>
 </body>
 @stop

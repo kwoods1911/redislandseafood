@@ -44,16 +44,16 @@ class QuoteController extends Controller
 
 //shrimp meat 9.50
 
-    public function store(Request $request){
-
+public function view(Request $request){
+    
     //Apply form validation
     //conditions for failer ?
     // if all pounds are empty ?
     // if user doesnt enter company name, email, phone number address, city, province, postal code.
     // if the min value  greater than the max value.
     // min order quantity is 20 pounds for all items.
- 
-    $validator = Validator::make($request->all(), [
+    $requestData = $request->all();
+    $validator = Validator::make($requestData, [
         'company_name' => 'required|max:255',
         'company_email' => 'required',
         'company_address' => 'required',
@@ -74,18 +74,42 @@ class QuoteController extends Controller
                     ->withErrors($validator)
                     ->withInput();
     }
+    // Calculate total cost of everything
+    //add neccesary information to $request array ?
     
-    if($request->total_live_lobster_pounds > 0 && $request->total_live_lobster_pounds < 20)
-            return redirect()->route('quote')->with('error', 'Minimum amount of live lobsters is 20 pounds.');
+    $additionalQuoteInformation = [
+        'total_cost_of_live_lobster' => $this->calculatePrice($this->determineLiveLobsterUnitPrice($request->total_live_lobster_pounds),$request->total_live_lobster_pounds), 
+        'total_cost_of_frozen_lobster' =>$this->calculatePrice($this->determineFrozenLobsterUnitPrice($request->total_frozen_lobster_pounds),$request->total_frozen_lobster_pounds),
+        'total_cost_of_clam_meat' => $this->calculatePrice($this->determineClamMeatUnitPrice($request->total_clam_pounds),$request->total_clam_pounds),
+        'total_cost_of_shrimp' => $this->calculatePrice($this->determineShrimpMeatUnitPrice($request->total_shrimp_pounds),$request->total_shrimp_pounds),
+        
+        'live_lobster_unit_price' => $this->determineLiveLobsterUnitPrice($request->total_live_lobster_pounds),
+        'frozen_lobster_unit_price' =>$this->determineFrozenLobsterUnitPrice($request->total_frozen_lobster_pounds),
+        'clam_meat_unit_price' =>$this->determineClamMeatUnitPrice($request->total_clam_pounds),
+        'shrimp_meat_unit_price' =>$this->determineShrimpMeatUnitPrice($request->total_shrimp_pounds),
+    ];
+    $additionalQuoteInformation['shipping'] = 300.00;
+    $additionalQuoteInformation['sub_total'] = $this->calculateSubTotal(
+        $additionalQuoteInformation['total_cost_of_live_lobster'],
+        $additionalQuoteInformation['total_cost_of_frozen_lobster'],
+        $additionalQuoteInformation['total_cost_of_clam_meat'],
+        $additionalQuoteInformation['total_cost_of_shrimp'],
+    );
 
-    if($request->total_frozen_lobster_pounds > 0 && $request->total_frozen_lobster_pounds < 20)
-        return redirect()->route('quote')->with('error', 'Minimum amount of cooked lobsters is 20 pounds.');
+    $additionalQuoteInformation['final_cost'] = $this->calculateSubTotal(
+        $additionalQuoteInformation['total_cost_of_live_lobster'],
+        $additionalQuoteInformation['total_cost_of_frozen_lobster'],
+        $additionalQuoteInformation['total_cost_of_clam_meat'],
+        $additionalQuoteInformation['total_cost_of_shrimp'],
+    ) + $additionalQuoteInformation['shipping'];
 
-    if($request->total_clam_pounds > 0 && $request->total_clam_pounds < 20)
-        return redirect()->route('quote')->with('error', 'Minimum amount of calms is 20 pounds.');    
+        
+    $combinedInformation = array_merge($requestData,$additionalQuoteInformation);
+    // dd($combinedInformation);
+    return view('pages.quote-summary',  ['information' => $combinedInformation]);
+}
 
-    if($request->total_shrimp_pounds > 0 && $request->total_shrimp_pounds < 20)
-        return redirect()->route('quote')->with('error', 'Minimum amount of shrimp is 20 pounds.');     
+    public function store(Request $request){     
 
     $quote = new Quote;
     $quote->companyName = $request->company_name;
@@ -185,5 +209,6 @@ class QuoteController extends Controller
     private function calculateSubTotal($liveLobsterCost,$frozenLobsterCost,$shrimpCost,$clamMeatCost){
         return $liveLobsterCost + $frozenLobsterCost + $shrimpCost + $clamMeatCost;
     }
+
 
 }

@@ -35,15 +35,16 @@ class ContactController extends Controller
         $mailData = [
             'url' => 'https://sandroft.com/'
         ];
-        $send_mail = "khariwoods3@gmail.com";
+
+        //First send customer email to yourself.
+        $send_mail = "redislandseafood@gmail.com";
         Mail::to($send_mail)->send(new SendMail($name,$email,$message));
 
+        // then send an automated reply.
         $senderMessage = "Thanks for your message we will reply within 24 hours.";
-
-        Mail::to($email)->send(new SendMessageToEndUser($name,$senderMessage,$mailData));
-
+       $test = Mail::to($email)->send(new SendMessageToEndUser($name,$senderMessage,$mailData));
+        
         $contacts->save();
         return redirect()->route('contact')->with('success', 'You message was successfully sent !');
-        // Send mail first
     }
 }
