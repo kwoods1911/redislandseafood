@@ -45,4 +45,4 @@ Route::post('/quote-summary', [QuoteController::class,'view']);
 
 Route::post('/quote-submitted', [QuoteController::class,'store'])->name('quote-submitted');
 
-Route::get('/generate-pdf/{id}',[PDFController::class, 'generateQuotePDF']);
+Route::get('/generate-pdf',[PDFController::class, 'generateQuotePDF'])->name('generate-pdf');

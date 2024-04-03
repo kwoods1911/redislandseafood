@@ -7,8 +7,9 @@ use PDF;
 
 class PDFController extends Controller
 {
-    public function generateQuotePDF(Request $request)
+    public function generateQuotePDF($request)
     {
+        dd($request);
         $data = $request->query();
         // Query the model and pass data to PDF.
         $quote = Quote::find($data['id']);

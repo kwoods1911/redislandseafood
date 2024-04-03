@@ -105,54 +105,68 @@ public function view(Request $request){
 
         
     $combinedInformation = array_merge($requestData,$additionalQuoteInformation);
-    // dd($combinedInformation);
+    
     return view('pages.quote-summary',  ['information' => $combinedInformation]);
 }
 
     public function store(Request $request){     
 
-    $quote = new Quote;
-    $quote->companyName = $request->company_name;
-    $quote->companyEmail = $request->company_email;
-    $quote->companyAddress = $request->company_address;
-    $quote->companyCity = $request->company_city;
-    $quote->companyPhoneNumber = $request->company_phone;
-    $quote->province = $request->company_province;
-    $quote->postalCode = $request->company_postal_code;
+    $quote_information = json_decode($request->quote_information, true); 
+    $quote = Quote::create([
+        'companyName' => $quote_information['company_name'],
+        'companyEmail' => $quote_information['company_email'],
+        'companyAddress' => $quote_information['company_address'],
+        'companyCity' => $quote_information['company_city'],
+        'companyPhoneNumber' => $quote_information['company_phone'],
+        'province' => $quote_information['company_province'],
+        'postalCode' => $quote_information['company_postal_code'],
+        'minLobsterSizes' => $quote_information['min_lobster_size'],
+        'maxLobsterSizes' => $quote_information['max_lobster_size'],
+        'totalLiveLobsterPounds' => $quote_information['total_live_lobster_pounds'],
+        'totalFrozenLobsterPounds' => $quote_information['total_frozen_lobster_pounds'],
+        'clamMeatPounds' => $quote_information['total_clam_pounds'],
+        'shrimpMeatPounds' => $quote_information['total_shrimp_pounds'],
+        'totalCostOfLiveLobster' => $quote_information['total_cost_of_live_lobster'],    
+        'totalCostOfFrozenLobster' => $quote_information['total_cost_of_frozen_lobster'],
+        'totalCostOfClamMeat' => $quote_information['total_cost_of_clam_meat'],
+        'totalCostOfShrimp' => $quote_information['total_cost_of_shrimp'],
+        'liveLobsterUnitPrice' => $quote_information['live_lobster_unit_price'],     
+        'frozenLobsterUnitPrice' => $quote_information['frozen_lobster_unit_price'],
+        'clamMeatUnitPrice' => $quote_information['clam_meat_unit_price'],
+        'shrimpMeatUnitPrice' => $quote_information['shrimp_meat_unit_price'],
+        'subTotal' => $quote_information['sub_total'],
+        'shippingCost' => $quote_information['shipping'],
+        'finalCost' => $quote_information['final_cost'],
+    ]);    
+    // $quote->companyName = $quote_information['company_name'];
+    // $quote->companyEmail = $quote_information['company_email'];
+    // $quote->companyAddress = $quote_information['company_address'];
+    // $quote->companyCity = $quote_information['company_city'];
+    // $quote->companyPhoneNumber = $quote_information['company_phone'];
+    // $quote->province = $quote_information['company_province'];
+    // $quote->postalCode = $quote_information['company_postal_code'];
+    // $quote->minLobsterSizes = $quote_information['min_lobster_size'];
+    // $quote->maxLobsterSizes = $quote_information['max_lobster_size'];
+    // $quote->totalLiveLobsterPounds = $quote_information['total_live_lobster_pounds'];
+    // $quote->totalFrozenLobsterPounds = $quote_information['total_frozen_lobster_pounds'];
+    // $quote->clamMeatPounds = $quote_information['total_clam_pounds'];
+    // $quote->shrimpMeatPounds = $quote_information['total_shrimp_pounds'];
+    // $quote->totalCostOfLiveLobster = $quote_information['total_cost_of_live_lobster'];    
+    // $quote->totalCostOfFrozenLobster = $quote_information['total_cost_of_frozen_lobster'];
+    // $quote->totalCostOfClamMeat = $quote_information['total_cost_of_clam_meat'];
+    // $quote->totalCostOfShrimp = $quote_information['total_cost_of_shrimp'];
+    // $quote->liveLobsterUnitPrice = $quote_information['live_lobster_unit_price'];     
+    // $quote->frozenLobsterUnitPrice = $quote_information['frozen_lobster_unit_price'];
+    // $quote->clamMeatUnitPrice = $quote_information['clam_meat_unit_price'];
+    // $quote->shrimpMeatUnitPrice = $quote_information['shrimp_meat_unit_price'];
+    // $quote->subTotal = $quote_information['sub_total'];
+    // $quote->shippingCost = $quote_information['shipping'];
+    // $quote->finalCost =  $quote_information['final_cost'];
+    // $quote->save();
 
-
-    $quote->minLobsterSizes = $request->min_lobster_size;
-    $quote->maxLobsterSizes = $request->max_lobster_size;
-    $quote->totalLiveLobsterPounds = $request->total_live_lobster_pounds;
-    $quote->totalFrozenLobsterPounds = $request->total_frozen_lobster_pounds;
-    $quote->clamMeatPounds = $request->total_clam_pounds;
-    $quote->shrimpMeatPounds = $request->total_shrimp_pounds;
-
-    $quote->totalCostOfLiveLobster = $this->calculatePrice($this->determineLiveLobsterUnitPrice($request->total_live_lobster_pounds),$request->total_live_lobster_pounds);    
-    $quote->totalCostOfFrozenLobster = $this->calculatePrice($this->determineFrozenLobsterUnitPrice($request->total_frozen_lobster_pounds),$request->total_frozen_lobster_pounds);
-    $quote->totalCostOfClamMeat = $this->calculatePrice($this->determineClamMeatUnitPrice($request->total_clam_pounds),$request->total_clam_pounds);
-    $quote->totalCostOfShrimp = $this->calculatePrice($this->determineShrimpMeatUnitPrice($request->total_shrimp_pounds),$request->total_shrimp_pounds);
     
-    $quote->liveLobsterUnitPrice = $this->determineLiveLobsterUnitPrice($request->total_live_lobster_pounds);     
-    $quote->frozenLobsterUnitPrice = $this->determineFrozenLobsterUnitPrice($request->total_frozen_lobster_pounds);
-    $quote->clamMeatUnitPrice = $this->determineClamMeatUnitPrice($request->total_clam_pounds);
-    $quote->shrimpMeatUnitPrice = $this->determineShrimpMeatUnitPrice($request->total_shrimp_pounds);
-   
-    $quote->subTotal = $this->calculateSubTotal(
-        $quote->totalCostOfLiveLobster,
-        $quote->totalCostOfFrozenLobster,
-        $quote->totalCostOfClamMeat,
-        $quote->totalCostOfShrimp,
-    );
 
-    $quote->shippingCost = 300.00;
-    $quote->finalCost =  $quote->subTotal + $quote->shippingCost;
-
-    $quote->save();
-
-    
-
-    return view('pages.quote-summary',  ['information' => $quote]);
+    // return view('pages.quote-summary',  ['information' => $quote]);
 
     }
 

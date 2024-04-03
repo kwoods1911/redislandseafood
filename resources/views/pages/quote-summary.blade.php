@@ -146,23 +146,40 @@
     </div>
     
     
-       
+    @php
+        $json = json_encode($information);
+    @endphp
+
+
+
+    <div class="container">
+    <form method="POST" action="{{ route('quote-submitted', ['pdfInformation' => $information]) }}">
+            @csrf
+            <input type="hidden" name="quote_information" value="{{$json}}">
+            <button class="btn btn-primary" type="submit">Confirm & Email</button>
+    </form>
+
+    
+    <a href="{{ route('quote') }}">
+        <button class="btn btn-primary"><< Go Back</button>
+    </a>
+    </div>
+
+    
+
+    
+<!-- 
     <form action="/generate-pdf" method="get">
         @csrf
-        <input type="hidden" name="id" value="{{ $information }}">
+        <input type="hidden" name="id" value="">
         <button id="quoteButton" type="submit" name='quote' class="btn btn-primary"> Download Copy</button>
-    </form>
+    </form> 
+ -->
     
     
     <!-- Add button to go back -->
 
-    <a href="{{ route('quote') }}">
-        <button class="btn btn-primary"><< Go Back</button>
-    </a>
-
-    <a href="{{ route('route.quote-submitted', ['lobsterInformation' => $information]) }}">
-    <button>Submit</button>
-    </a>
+    
 </div>
 </body>
 @stop
