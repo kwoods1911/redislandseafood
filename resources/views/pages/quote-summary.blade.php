@@ -153,7 +153,7 @@
 
 
     <div class="container">
-    <form method="POST" action="{{ route('quote-submitted', ['pdfInformation' => $information]) }}">
+    <form method="POST" action="{{ route('quote-submitted') }}">
             @csrf
             <input type="hidden" name="quote_information" value="{{$json}}">
             <button class="btn btn-primary" type="submit">Confirm & Email</button>
