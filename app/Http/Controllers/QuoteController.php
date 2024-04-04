@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Quote;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\PDFController;
+use PDF;
+
 
 class QuoteController extends Controller
 {
@@ -94,8 +97,11 @@ public function view(Request $request){
         'finalCost' => $quote_information['final_cost'],
     ]);    
     
+    // pass information to pdf route.    
+    $pdf = PDF::loadView('pages.quotePDF',$quote->toArray());
+    $pdf->download('quote.pdf');
 
-    // return view('pages.quote-summary',  ['information' => $quote]);
+    return view('pages.submitted-quote', ['information' => $quote]);
 
     }
 
