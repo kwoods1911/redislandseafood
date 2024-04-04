@@ -7,6 +7,8 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\Quote;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\PDFController;
+use App\Mail\SendMessageToEndUser;
+use Mail;
 use PDF;
 
 
@@ -98,8 +100,19 @@ public function view(Request $request){
     ]);    
     
     // pass information to pdf route.    
-    $pdf = PDF::loadView('pages.quotePDF',$quote->toArray());
-    $pdf->download('quote.pdf');
+
+    // refactotr this code below into its own class so that pdf can be returned.
+    $data = $quote->toArray();
+    $pdf = PDF::loadView('pages.quotePDF',$data);
+    
+
+    Mail::send('pages.emailed-confirmation',$data, function($message)use($data,$pdf){
+        $message->to('khariwoods3@gmail.com')
+                ->subject('Quote')
+                ->attachData($pdf->output(),"quote.pdf");
+    });
+
+    
 
     return view('pages.submitted-quote', ['information' => $quote]);
 
