@@ -37,9 +37,16 @@ Route::get('/contact', function(){
     return view('pages.contactus');
 })->name('contact');
 
+
+Route::get('/registration', function(){
+    return view('pages.signup');
+})->name('registration');
+
+
 Route::post('/store-contact',[ContactController::class,'store']);
 
+Route::post('/quote-summary', [QuoteController::class,'view']);
 
-Route::post('/quote-summary', [QuoteController::class,'store']);
+Route::post('/quote-submitted', [QuoteController::class,'store'])->name('quote-submitted');
 
-Route::get('/generate-pdf/{id}',[PDFController::class, 'generateQuotePDF']);
+Route::get('/generate-pdf',[PDFController::class, 'generateQuotePDF'])->name('generate-pdf');

@@ -42,7 +42,7 @@ class SendMessageToEndUser extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'markdown=SendMessageToEndUser',
+            markdown: 'automated_reply_template',
         );
     }
 

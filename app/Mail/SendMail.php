@@ -41,7 +41,7 @@ class SendMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'markdown=SendMail',
+            markdown: 'email_template',
         );
     }
 
