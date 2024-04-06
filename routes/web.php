@@ -38,6 +38,10 @@ Route::get('/contact', function(){
 })->name('contact');
 
 
+Route::get('/registration', function(){
+    return view('pages.signup');
+})->name('registration');
+
 
 Route::post('/store-contact',[ContactController::class,'store']);
 

@@ -105,9 +105,9 @@ public function view(Request $request){
     $data = $quote->toArray();
     $pdf = PDF::loadView('pages.quotePDF',$data);
     
-
+    
     Mail::send('pages.emailed-confirmation',$data, function($message)use($data,$pdf){
-        $message->to('khariwoods3@gmail.com')
+        $message->to($data['companyEmail'])
                 ->subject('Quote')
                 ->attachData($pdf->output(),"quote.pdf");
     });

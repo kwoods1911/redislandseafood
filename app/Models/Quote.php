@@ -36,4 +36,8 @@ class Quote extends Model
             'shippingCost',
             'finalCost',
     ];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

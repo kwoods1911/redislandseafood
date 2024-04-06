@@ -164,21 +164,6 @@
         <button class="btn btn-primary"><< Go Back</button>
     </a>
     </div>
-
-    
-
-    
-<!-- 
-    <form action="/generate-pdf" method="get">
-        @csrf
-        <input type="hidden" name="id" value="">
-        <button id="quoteButton" type="submit" name='quote' class="btn btn-primary"> Download Copy</button>
-    </form> 
- -->
-    
-    
-    <!-- Add button to go back -->
-
     
 </div>
 </body>
