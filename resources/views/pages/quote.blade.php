@@ -1,6 +1,8 @@
 @extends('layout.default')
 
 @section('content')
+
+@auth
 <body>
     <h1>Request Quote</h1>
     @if($errors->any())
@@ -113,8 +115,16 @@
         
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
 </body>
+@else
+<body>
+    <h1>Sign up for a free quote</h1>
+        <a class="btn btn-primary" href="/register">
+            Register
+        </a>
+</body>
+
+@endauth
 
 @stop
 

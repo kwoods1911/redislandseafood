@@ -21,17 +21,28 @@
         <a class="nav-link" href="/contact">Contact</a>
       </li>
 
+      @auth
+            <li class="nav-item">
+            <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+              </a>
+            </li>
+
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
+      @else
            <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
-            </li>
-
-            <li class="nav-item">
               <a class="nav-link" href="/registration">Register</a>
             </li>
+       @endauth   
     </ul>
 
 
