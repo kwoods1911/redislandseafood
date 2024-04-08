@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QuoteController;
-
 use App\Http\Controllers\PDFController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +39,9 @@ Route::get('/contact', function(){
 
 
 Route::get('/registration', function(){
-    return view('pages.signup');
+    return view('auth.register');
 })->name('registration');
+
 
 
 Route::post('/store-contact',[ContactController::class,'store']);
@@ -50,3 +51,21 @@ Route::post('/quote-summary', [QuoteController::class,'view']);
 Route::post('/quote-submitted', [QuoteController::class,'store'])->name('quote-submitted');
 
 Route::get('/generate-pdf',[PDFController::class, 'generateQuotePDF'])->name('generate-pdf');
+
+Auth::routes([
+    'verify' => true
+]);
+
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
