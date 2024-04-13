@@ -72,7 +72,10 @@ public function view(Request $request){
 
     public function store(Request $request){     
     $quote_information = json_decode($request->quote_information, true); 
+
+    
     $quote = Quote::create([
+        'user_id' => auth()->user()->id,
         'companyName' => $quote_information['company_name'],
         'companyEmail' => $quote_information['company_email'],
         'companyAddress' => $quote_information['company_address'],
