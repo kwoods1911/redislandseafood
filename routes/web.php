@@ -72,6 +72,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index']);
 
-Route::get('/view/quote/{id}', [App\Http\Controllers\AdminController::class, 'view']);
+Route::get('/admin/view/quote/{id}', [App\Http\Controllers\AdminController::class, 'view']);
 
 Route::get('/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete']);
+
+

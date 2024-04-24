@@ -14,8 +14,13 @@ class AdminController extends Controller
     }
 
 
-    public function view(){
+    public function view($id){
+        // this view is responsible for displaying the
+        //retrieve quote and send it to page.
+        $quote = Quote::find($id);
+        
 
+        return view('admin.quote-details')->with('quote',$quote);
     }
 
     public function delete(){

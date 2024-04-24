@@ -27,7 +27,8 @@
                 <td>{{$data->totalLiveLobsterPounds}}</td>
                 <td>$ {{$data->finalCost}}</td>
                 <td>
-                        <a href="#" class="btn btn-primary">Details</a>
+                    
+                        <a href="/admin/view/quote/{{$data->id}}" class="btn btn-primary">Details</a>
                 </td>
                 <td>
                         <a href="#" class="btn btn-danger">Delete</a>
