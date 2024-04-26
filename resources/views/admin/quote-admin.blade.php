@@ -31,7 +31,7 @@
                         <a href="/admin/view/quote/{{$data->id}}" class="btn btn-primary">Details</a>
                 </td>
                 <td>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <a href="/delete/{{$data->id}}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             @endforeach
