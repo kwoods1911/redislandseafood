@@ -16,6 +16,7 @@
     <!-- client information -->
     <table class="table">
             <thead class="thead-dark">
+            <h3>Client Details</h3>
                     <tr>
                         <th scope="col">Company</th>
                         <th scope="col">Email</th>
@@ -42,11 +43,12 @@
 <!-- Product rate -->
 <table class="table">
     <thead class="thead-dark">
+        <h3>Cost Per Pound</h3>
         <tr>
-                <th scope="col">Lobster Cost Per Pound</th>
-                <th scope="col">Frozen Lobster lbs Price per pound</th>
-                <th scope="col">Clam Meat lbs price per pound</th>
-                <th scope="col">Shrimp lbs price per pound</th>
+                <th scope="col">Live Lobster</th>
+                <th scope="col">Frozen Lobster</th>
+                <th scope="col">Clam Meat</th>
+                <th scope="col">Shrimp</th>
         </tr>
     </thead>
 
@@ -63,11 +65,12 @@
 <!-- Product pounds -->
 <table class="table">
     <thead class="thead-dark">
+    <h3>Quantity of Product (lbs)</h3>
         <tr>
-                <th scope="col">Amount of Lobster lbs</th>
-                <th scope="col">Amount of Frozen Lobster lbs</th>
-                <th scope="col">Amount of clam Meat lbs</th>
-                <th scope="col">Amount Of Shrimp lbs</th>
+                <th scope="col">Lobster</th>
+                <th scope="col">Frozen Lobster</th>
+                <th scope="col">Clam Meat</th>
+                <th scope="col">Shrimp</th>
                 <th scope="col">Total pounds</th>
         </tr>
     </thead>
@@ -85,11 +88,12 @@
 
     <table class="table">
     <thead class="thead-dark">
+    <h3>Total Cost</h3>
             <tr>
-                <th scope="col">Cost of Lobster</th>
-                <th scope="col">Cost Of Frozen Lobster</th>
-                <th scope="col">Cost of clam Meat</th>
-                <th scope="col">Total Cost Of Shrimp</th>
+                <th scope="col">Lobster</th>
+                <th scope="col">Frozen Lobster</th>
+                <th scope="col">Clam Meat</th>
+                <th scope="col">Shrimp</th>
                 <th scope="col">Subtotal</th>
                 <th scope="col">Shipping</th>
                 <th scope="col">Total</th>
