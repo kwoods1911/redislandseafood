@@ -11,6 +11,7 @@ class Quote extends Model
     public $table = 'quote';
 
     protected $fillable = [
+            'user_id',
             'companyName',
             'companyEmail',
             'companyAddress',

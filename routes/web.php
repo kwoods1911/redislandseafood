@@ -70,4 +70,10 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/admin')
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+
+Route::get('/admin/view/quote/{id}', [App\Http\Controllers\AdminController::class, 'view']);
+
+Route::get('/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete']);
+
+
