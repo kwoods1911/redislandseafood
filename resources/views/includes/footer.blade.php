@@ -9,11 +9,15 @@
     <!-- If user is an Admin then display information -->
     <ul class="navbar-nav">
         <li>
-            <a href="/admin">View Quotes</a>
+            @auth
+            <!-- if user is admin then show quotes link -->
+                @php
+                if(auth()->user()->is_admin){
+                    echo '<a href="/admin">View Quotes</a>';
+                }
+                @endphp
+            @endauth
         </li>
-        <!-- <li>
-            <a href="/users">View Users</a>
-        </li> -->
     </ul>
 </div>
     
