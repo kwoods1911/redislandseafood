@@ -4,17 +4,16 @@
 @section('content')
 <body>
 
-<div class="jumbotron" style="
-    background-image: url('https://unsplash.com/photos/red-and-blue-dragon-on-roof--A_U5GZlLlQ');
-    height: 400px;
-  ">
-  <h1 class="display-4">MOST AFFORDABLE LOBSTER SUPPLIER IN CANADA</h1>
-  <hr class="my-4">
-  <p class="lead">Purchase live lobsters at wholesale price.</p>
-  
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Request Free Quote</a>
-  </p>
+<div class="jumbotron jumbotron-fluid">
+<div id="home-page-lobster-banner" class="container-fluid">
+    <h1>MOST AFFORDABLE LOBSTER SUPPLIER IN CANADA</h1>
+      <hr class="my-4">
+      <p>Purchase live lobsters at wholesale price.</p>
+      <p class="lead">
+        <a id="request-btn" class="btn btn-primary btn-lg" href="/quote" role="button">Request Free Quote</a>
+      </p>
+</div>
+
 </div>
 
 

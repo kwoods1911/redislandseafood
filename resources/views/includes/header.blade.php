@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Red Island Seafood</a>
+  <a id="logo" class="navbar-brand" href="/">Red Island Seafood</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,10 +24,10 @@
       @auth
             <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-              </a>
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+          </a>
             </li>
 
 
@@ -42,9 +42,16 @@
             <li class="nav-item">
               <a class="nav-link" href="/registration">Register</a>
             </li>
-       @endauth   
+       @endauth
+       
+       
     </ul>
 
 
   </div>
+  <span class="navbar-text">
+        1-900-LOBSTER
+    </span>
 </nav>
+
+
