@@ -3,6 +3,11 @@
 }
 
 
+body{
+  background-color: rgb(255, 255, 255);
+}
+
+
 #logo{
     color:rgb(227, 42, 0);
     font-size: 36px;
@@ -25,7 +30,7 @@
 }
 
 #home-page-lobster-banner{
-  background-color: rgb(227, 42, 0);
+  background-color: rgba(245, 45, 0, 0.9);
   margin:auto;
   padding: 40px 40px;
   width: 50%;
@@ -42,5 +47,39 @@
   border: none;
 }
 
+#home-page-description{
+  padding: 56px 0px;
+  text-align: center;
+}
 
+#home-page-description h4{
+  color: rgb(27, 27, 27);
+}
+
+#home-page-description p{
+ color: rgb(94, 94, 94);
+}
+
+
+#footer{
+  text-align: center;
+  background-color: rgb(246, 246, 246);
+}
+
+
+#footer-navbar{
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.footer-links a{
+  color:rgb(21, 21, 21);
+  text-decoration: none;
+}
+
+.footer-links a:hover{
+  color:rgb(245, 45, 0);
+  font-size: 16px;
+}
 

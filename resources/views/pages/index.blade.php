@@ -17,9 +17,8 @@
 </div>
 
 
-<div class="container-fluid">
-  <h2>Welcome to Red Island Seafood Wholesale Store!</h2>
-<div>
+<section id="home-page-description" class="container-fluid">
+  <h4>Welcome to Red Island Seafood Wholesale Store!</h4>
     <p>At Red Island Seafood, we take pride in bringing the unparalleled taste of the ocean 
         directly to your establishment. Specializing in the delivery of live, freshly caught lobsters, we guarantee a culinary experience that is as authentic as it is exquisite.
         Dedicated to delivering the freshest lobsters, we uphold a minimum one-day 
@@ -29,11 +28,7 @@
         expertly packaged, and loaded for next-day shipment, preserving their peak freshness for your
     culinary creations.
 </p>
-</div>
-  
-</div>
-
-
+</section>
 </body>
 
 @stop
