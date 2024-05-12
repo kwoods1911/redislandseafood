@@ -22,6 +22,17 @@
       </li>
 
       @auth
+            <!-- if user is admin then show quotes link -->
+                @php
+                if(auth()->user()->is_admin){
+                    echo '<li class="nav-item">
+                            <a class="nav-link" href="/admin">View Quotes</a>
+                    </li>';
+                }
+                @endphp
+            @endauth
+
+      @auth
             <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
