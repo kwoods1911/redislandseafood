@@ -108,6 +108,19 @@ body{
   max-width: 550px;
 }
 
+.send-btn{
+  background-color:rgb(245, 45, 0);
+  color: rgb(246, 246, 246);
+  padding: 18px 22px;
+  border: none;
+}
+
+
+.send-btn:hover{
+  color:rgb(245, 45, 0);
+  background-color: rgb(246, 246, 246);
+}
+
 .page-header-text{
   color:rgb(245, 45, 0);
 }

@@ -116,7 +116,7 @@
             </div>
         @endif
         
-        <button type="submit" class="btn btn-primary register-btn">Send</button>
+        <button type="submit" class="btn btn-primary send-btn">Send</button>
     </form>
 </body>
 </div>
