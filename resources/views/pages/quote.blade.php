@@ -4,7 +4,10 @@
 
 @auth
 <body>
-    <h1>Request Quote</h1>
+
+
+<div class="container quote-container">
+<h1 class="page-header-text">Request Quote</h1>
     @if($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -17,43 +20,43 @@
     <form action="/quote-summary" method="post">
     @csrf
     <div class="form-group">
-        <label for="">Company Name:</label>
-        <input type="text" name="company_name">
+        <label class="label-styling" for="company_name">Company Name:</label>
+        <input type="text" name="company_name" class="form-control">
     </div>
 
     <div class="form-group">
-        <label for="">Company Email:</label>
-        <input type="email" name="company_email">
+        <label class="label-styling" for="company_email">Company Email:</label>
+        <input type="email" name="company_email" class="form-control">
     </div>
 
     <div class="form-group">
-        <label for="">Company Phone Number:</label>
-        <input type="tel" id="phone" name="company_phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+        <label class="label-styling" for="company_phone">Company Phone Number:</label>
+        <input type="tel" id="phone" name="company_phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control">
     </div>
 
     <div class="form-group">
-        <label for="">Company Address:</label>
-        <input type="text" name="company_address">
+        <label class="label-styling" for="company_address">Company Address:</label>
+        <input type="text" name="company_address" class="form-control">
     </div>
 
     <div class="form-group">
-        <label for="">City:</label>
-        <input type="text" name="company_city">
+        <label class="label-styling" for="company_city">City:</label>
+        <input type="text" name="company_city" class="form-control">
     </div>
 
     <div class="form-group">
-        <label for="">Province:</label>
-        <input type="text" name="company_province">
+        <label class="label-styling" for="company_province">Province:</label>
+        <input type="text" name="company_province" class="form-control">
     </div>
     
 <!-- Validation is needed here -->
     <div class="form-group">
-        <label for="">Postal Code:</label>
-        <input type="text" name="company_postal_code" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]">
+        <label class="label-styling" for="company_postal_code">Postal Code:</label>
+        <input type="text" name="company_postal_code" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" class="form-control">
     </div>
 
         <div class="form-group">
-            <label for="">Lobster Range</label>
+            <label class="label-styling" for="min_lobster_size">Lobster Range</label>
             <select name="min_lobster_size">
                 <option value="1">1 lbs</option>
                 <option value="1.5">1.5 lbs</option>
@@ -72,7 +75,7 @@
         </div>
 
         <div class="form-group">
-            <label for="">Total Live Lobsters (Pounds):</label>
+            <label class="label-styling" for="total_live_lobster_pounds">Total Live Lobsters (Pounds):</label>
             <input name="total_live_lobster_pounds" type="number" class="form-control">
         </div>
         @if(session()->has('error'))
@@ -82,7 +85,7 @@
         @endif
 
         <div class="form-group">
-            <label for="">Total Frozen Lobsters (Pounds):</label>
+            <label class="label-styling" for="total_frozen_lobster_pounds">Total Frozen Lobsters (Pounds):</label>
             <input name="total_frozen_lobster_pounds" type="number" class="form-control">
         </div>
 
@@ -93,7 +96,7 @@
         @endif
 
         <div class="form-group">
-            <label for="">Total Clam Meat (Pounds):</label>
+            <label class="label-styling" for="total_clam_pounds">Total Clam Meat (Pounds):</label>
             <input name="total_clam_pounds" type="number" class="form-control">
         </div>
 
@@ -104,7 +107,7 @@
         @endif
 
         <div class="form-group">
-            <label for="">Total Shrimp Meat (Pounds):</label>
+            <label class="label-styling" for="">Total Shrimp Meat (Pounds):</label>
             <input name="total_shrimp_pounds" type="number" class="form-control">
         </div>
         @if(session()->has('error'))
@@ -113,15 +116,20 @@
             </div>
         @endif
         
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary register-btn">Send</button>
     </form>
 </body>
+</div>
+
+
+
 @else
 <body>
-    <h1>Sign up for a free quote</h1>
-        <a class="btn btn-primary" href="/register">
-            Register
-        </a>
+        <div class="container quote-container">
+            <h1 class="page-header-text">Register or Login for a free Quote !</h1>
+            <a class="btn btn-primary register-btn" href="/register">Register</a>
+            <a class="btn btn-primary register-btn" href="/login">Login</a>
+        </div>
 </body>
 
 @endauth
