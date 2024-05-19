@@ -136,6 +136,17 @@ img{
 }
 
 
+/* Contact page styling */
+.contact-page-container{
+  max-width: 650px;
+  min-height: 500px;
+}
+
+#contact-page-header{
+  text-align: center;
+}
+
+
 
 
 
