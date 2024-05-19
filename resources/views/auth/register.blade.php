@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.default')
 
 @section('content')
 <div class="container">
@@ -63,7 +63,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary send-btn">
                                     {{ __('Register') }}
                                 </button>
                             </div>
