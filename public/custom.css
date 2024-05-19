@@ -10,9 +10,7 @@ body{
     font-size: 36px;
   }
 
-  .jumbotron{
-    background-image: url('/public/assets/images/hero-images.jpg');
-  }
+
 
 .navbar-text{
   color:#212529;
@@ -112,6 +110,7 @@ body{
   background-color:rgb(245, 45, 0);
   color: rgb(246, 246, 246);
   padding: 18px 22px;
+  margin: 10px 10px;
   border: none;
 }
 
@@ -124,6 +123,18 @@ body{
 .page-header-text{
   color:rgb(245, 45, 0);
 }
+
+
+.aboutus-container{
+  min-width: 500px;
+}
+
+
+img{
+  height: 300px;
+  width: 400px;
+}
+
 
 
 
