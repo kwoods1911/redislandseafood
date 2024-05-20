@@ -76,4 +76,8 @@ Route::get('/admin/view/quote/{id}', [App\Http\Controllers\AdminController::clas
 
 Route::get('/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete']);
 
+Route::get('/privacy',function(){
+    return view('pages.privacy');
+})
+
 
