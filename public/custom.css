@@ -13,11 +13,11 @@ body{
 
 
 .navbar-text{
-  color:#212529;
+  color:rgb(227, 42, 0);
+  font-size: 36px;
 }
 
 .jumbotron{
-  background-color: blue;
   min-height: 409.600px;
   padding: 40px 40px;
   background-image: url('/assets/images/hero-images.jpg');
@@ -145,6 +145,18 @@ img{
 #contact-page-header{
   text-align: center;
 }
+
+
+/* Media Queries */
+
+@media (max-width: 500px){
+  .navbar-text{
+    visibility: hidden;
+  }  
+}
+
+
+
 
 
 
