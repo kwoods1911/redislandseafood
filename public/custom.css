@@ -130,9 +130,9 @@ body{
 }
 
 
-img{
-  height: 300px;
-  width: 400px;
+#lobsterimage{
+  height: 200px;
+  width: 300px;
 }
 
 
@@ -146,9 +146,13 @@ img{
   text-align: center;
 }
 
+/* About page extra styling */
+.col-about-page{
+  min-height: 200px;
+}
+
 
 /* Media Queries */
-
 @media (max-width: 500px){
   .navbar-text{
     visibility: hidden;

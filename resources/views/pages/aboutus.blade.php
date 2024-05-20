@@ -8,11 +8,11 @@
         
             <div class="row">
 
-            <div class="col">
-                <img src="/assets/images/aboutuspage.jpg" alt="">
+            <div class="col col-about-page">
+                <img id="lobsterimage" src="/assets/images/aboutuspage.jpg" alt="">
             </div>
 
-            <div class="col">
+            <div class="col col-about-page">
                 <h4>Freshly Harvest/Cooked Lobster</h4>
                 <p>
                     Indulge in the unparalleled taste of the sea with our freshly caught lobsters, 
@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col">
                 </div>
-                <div class="col">
+                <div class="col col-about-page">
                     <h4>Competitive Pricing</h4>
                     <p> At Red Island Seafood, we believe in delivering exceptional quality at an unbeatable value. 
                         Our competitive pricing ensures that you can enjoy the finest live lobsters without compromising your budget. 
@@ -38,7 +38,7 @@
 
             <div class="row">
                 <div class="col"></div>
-                <div class="col">
+                <div class="col col-about-page">
                     <h4>Fast Shipping</h4>
                     <p> Experience the convenience of our swift and secure shipping services, 
                         available even on weekends. Every Friday evening, our dedicated truck departs from Prince Edward Island, 
@@ -51,7 +51,7 @@
 
             <div class="row">
                 <div class="col"></div>
-                <div class="col">
+                <div class="col col-about-page">
                     <h4>Expert Customer Support</h4>
                     <p> Our dedicated customer support team is here to assist you at every step. 
                         Whether you have questions about our products, need help placing an order, 
@@ -63,7 +63,7 @@
 
             <div class="row">
                 <div class="col"></div>
-                <div class="col">
+                <div class="col col-about-page">
                     <h4>Easy Payment Options</h4>
                     <p>
                         Red Island Seafood offers convenient payment choices, 
