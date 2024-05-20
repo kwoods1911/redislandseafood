@@ -2,8 +2,8 @@
 
 @section('content')
 <body>
-    <div>
-        <h1>Contact Us</h1>
+    <div class="container contact-page-container">
+        <h1 id="contact-page-header" class="page-header-text">Contact Us</h1>
 
 @include('pages.validation-message')
 
@@ -30,7 +30,7 @@
     <textarea name="contact_message" class="form-control" id="contactMessage" rows="3"></textarea>
 </div>
   
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary send-btn">Submit</button>
 </form>
     </div>
 </body>
