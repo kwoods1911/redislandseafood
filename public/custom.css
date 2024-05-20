@@ -151,6 +151,10 @@ body{
   min-height: 200px;
 }
 
+.page-height-controller{
+  min-height: 500px;
+}
+
 
 /* Media Queries */
 @media (max-width: 500px){
