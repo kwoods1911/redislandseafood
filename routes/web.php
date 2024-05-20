@@ -81,3 +81,7 @@ Route::get('/privacy',function(){
 });
 
 
+Route::get('/terms',function(){
+    return view('pages.termsandconditions');
+});
+

@@ -7,7 +7,7 @@
                     <a href="/privacy"> Privacy Policy</a>
                 </p>
                 <p class="footer-links">
-                    <a href="#">Terms and Conditions</a>
+                    <a href="/terms">Terms and Conditions</a>
                 </p>
 </div>
 
