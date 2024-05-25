@@ -152,18 +152,19 @@
 
 
 
-    <div class="container">
-    <form method="POST" action="{{ route('quote-submitted') }}">
-            @csrf
-            <input type="hidden" name="quote_information" value="{{$json}}">
-            <button class="btn btn-primary" type="submit">Confirm & Email</button>
-    </form>
+<div class="container">
+        <div class="row button-container">
+            <form method="POST" action="{{ route('quote-submitted') }}">
+                    @csrf
+                    <input type="hidden" name="quote_information" value="{{$json}}">
+                    <button class="btn btn-primary send-btn" type="submit">Confirm & Email</button>
+            </form>
 
-    
-    <a href="{{ route('quote') }}">
-        <button class="btn btn-primary"><< Go Back</button>
-    </a>
-    </div>
+            <a href="{{ route('quote') }}">
+                <button class="btn btn-primary send-btn">Cancel </button>
+            </a>
+        </div>
+</div>
     
 </div>
 </body>
