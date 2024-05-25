@@ -6,7 +6,7 @@
         <h1>Admin</h1>
     </div>
 
-    <div class="container">
+    <div class="container page-height-controller">
         <table class="table">
             <thead class="thead-dark">
                     <tr>
