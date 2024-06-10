@@ -13,11 +13,11 @@ body{
 
 
 .navbar-text{
-  color:#212529;
+  color:rgb(227, 42, 0);
+  font-size: 36px;
 }
 
 .jumbotron{
-  background-color: blue;
   min-height: 409.600px;
   padding: 40px 40px;
   background-image: url('/assets/images/hero-images.jpg');
@@ -130,9 +130,9 @@ body{
 }
 
 
-img{
-  height: 300px;
-  width: 400px;
+#lobsterimage{
+  height: 200px;
+  width: 300px;
 }
 
 
@@ -145,6 +145,54 @@ img{
 #contact-page-header{
   text-align: center;
 }
+
+/* About page extra styling */
+.col-about-page{
+  min-height: 200px;
+}
+
+.page-height-controller{
+  min-height: 500px;
+}
+
+.button-container{
+  float: left;
+}
+
+.admin-link a{
+  color:rgb(245, 45, 0);
+  margin-left: 150px;
+}
+
+.details-btn{
+  background-color: #FFFFFF;
+  color:rgb(245, 45, 0);
+  border: 1px solid rgb(245, 45, 0);
+}
+
+.details-btn:hover{
+  background-color: rgb(245, 45, 0);
+  color: #FFFFFF;
+  border: none;
+}
+
+.delete-btn:hover{
+  background-color: #FFFFFF;
+  color:rgb(245, 45, 0);
+  border: #FFFFFF;
+}
+
+
+
+/* Media Queries */
+@media (max-width: 500px){
+  .navbar-text{
+    visibility: hidden;
+  }  
+}
+
+
+
 
 
 

@@ -70,10 +70,18 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->middleware('auth.session','admin');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->middleware('auth.session','admin')->name('admin');
 
 Route::get('/admin/view/quote/{id}', [App\Http\Controllers\AdminController::class, 'view']);
 
 Route::get('/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete']);
 
+Route::get('/privacy',function(){
+    return view('pages.privacy');
+});
+
+
+Route::get('/terms',function(){
+    return view('pages.termsandconditions');
+});
 

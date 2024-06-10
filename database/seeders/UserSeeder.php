@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'is_admin' => true,
             'password' => Hash::make('123456789'),
+
         ]);
 
         User::factory()->count(3)->create();
