@@ -164,6 +164,26 @@ body{
   margin-left: 150px;
 }
 
+.details-btn{
+  background-color: #FFFFFF;
+  color:rgb(245, 45, 0);
+  border: 1px solid rgb(245, 45, 0);
+}
+
+.details-btn:hover{
+  background-color: rgb(245, 45, 0);
+  color: #FFFFFF;
+  border: none;
+}
+
+.delete-btn:hover{
+  background-color: #FFFFFF;
+  color:rgb(245, 45, 0);
+  border: #FFFFFF;
+}
+
+
+
 /* Media Queries */
 @media (max-width: 500px){
   .navbar-text{
