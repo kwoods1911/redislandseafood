@@ -6,7 +6,7 @@
         <h1>Admin</h1>
     </div>
 
-    <div class="container">
+    <div class="container page-height-controller">
         <table class="table">
             <thead class="thead-dark">
                     <tr>
@@ -27,11 +27,10 @@
                 <td>{{$data->totalLiveLobsterPounds}}</td>
                 <td>$ {{$data->finalCost}}</td>
                 <td>
-                    
-                        <a href="/admin/view/quote/{{$data->id}}" class="btn btn-primary">Details</a>
+                    <a href="/admin/view/quote/{{$data->id}}" class="btn btn-primary details-btn">Details</a>
                 </td>
                 <td>
-                        <a href="/delete/{{$data->id}}" class="btn btn-danger">Delete</a>
+                     <a href="/delete/{{$data->id}}" class="btn btn-danger delete-btn">Delete</a>
                 </td>
             </tr>
             @endforeach
