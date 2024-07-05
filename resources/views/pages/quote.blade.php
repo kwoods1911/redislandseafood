@@ -19,7 +19,12 @@
 @endif
     <form action="/quote-summary" method="post">
     @csrf
-    <div class="form-group">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col">
+            <div class="form-group">
         <label class="label-styling" for="company_name">Company Name:</label>
         <input type="text" name="company_name" class="form-control">
     </div>
@@ -54,7 +59,10 @@
         <label class="label-styling" for="company_postal_code">Postal Code:</label>
         <input type="text" name="company_postal_code" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" class="form-control">
     </div>
+            </div>
 
+            <div class="col">
+                
         <div class="form-group">
             <label class="label-styling" for="min_lobster_size">Lobster Range</label>
             <select name="min_lobster_size">
@@ -115,6 +123,12 @@
                 {{ session('error') }}
             </div>
         @endif
+            </div>
+        </div>
+
+    </div>
+  
+
         
         <button type="submit" class="btn btn-primary send-btn">Send</button>
     </form>
