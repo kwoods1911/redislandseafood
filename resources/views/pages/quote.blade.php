@@ -8,7 +8,7 @@
 
 <div class="container quote-container">
 <h1 class="page-header-text">Request Quote</h1>
-    @if($errors->any())
+@if($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
