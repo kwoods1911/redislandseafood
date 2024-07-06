@@ -107,13 +107,14 @@ public function view(Request $request){
     // refactotr this code below into its own class so that pdf can be returned.
     $data = $quote->toArray();
     $pdf = PDF::loadView('pages.quotePDF',$data);
+    return $pdf->download('invoice.pdf');
     
     
-    Mail::send('pages.emailed-confirmation',$data, function($message)use($data,$pdf){
-        $message->to($data['companyEmail'])
-                ->subject('Quote')
-                ->attachData($pdf->output(),"quote.pdf");
-    });
+    // Mail::send('pages.emailed-confirmation',$data, function($message)use($data,$pdf){
+    //     $message->to($data['companyEmail'])
+    //             ->subject('Quote')
+    //             ->attachData($pdf->output(),"quote.pdf");
+    // });
 
     
 

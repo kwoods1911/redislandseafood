@@ -10,11 +10,11 @@
 </head>
 
 <body>
-
 <table class="w-full">
     <tr>
         <td class="w-half">
-            <!-- <img src="{{ asset('RedIslandSeafoodLogo.png') }}" alt="red island seafood logo"> -->
+            <!-- <img src="{{ asset('RedIslandSeafood  Logo.png') }}" alt="red island seafood logo"> -->
+             <span class="logo">RED ISLAND SEAFOOD</span>
         </td>
 
         <td class="w-half">
@@ -43,16 +43,13 @@
                     <div>{{$companyAddress}} </div>
                     <div>{{$companyCity}}, {{$province}}, {{$postalCode}}</div>
                     <div>Phone: {{$companyPhoneNumber}}</div>
-                </td>
-        </tr>
-       
-            </table>
-
+            </td>
+        </tr>   
+    </table>
     </div>
-            
 
-    <!-- Ship To -->
-        <table class="table">
+    <div class="margin-top">
+        <table class="products">
             <tr>
                 <th>Item</th>
                 <th>Description</th>
@@ -62,18 +59,17 @@
             </tr>
 
             @if($totalLiveLobsterPounds > 0)
-            <tr>
+            <tr class="items">
                 <td>1</td>
                 <td>Live Lobster ({{$minLobsterSizes}} lbs - {{$maxLobsterSizes}} lbs )</td>
                 <td>{{$totalLiveLobsterPounds}}</td>
                 <td>{{$liveLobsterUnitPrice}}</td>
-                <td> $ {{$totalCostOfLiveLobster}}</td>
+                <td> ${{$totalCostOfLiveLobster}}</td>
             </tr>
             @endif
 
-
             @if($totalFrozenLobsterPounds > 0)
-            <tr>
+            <tr class="items">
                 <td>2</td>
                 <td>Cooked Lobster </td>
                 <td>{{$totalFrozenLobsterPounds}}</td>
@@ -82,65 +78,38 @@
             </tr>
             @endif
 
-
-
             @if($clamMeatPounds > 0)
-            <tr>
+            <tr class="items">
                 <td>3</td>
                 <td>Clam Meat</td>
                 <td>{{$clamMeatPounds}}</td>
                 <td>{{$clamMeatUnitPrice}}</td>
-                <td> $ {{$totalCostOfClamMeat}}</td>
+                <td> ${{$totalCostOfClamMeat}}</td>
             </tr>
             @endif
 
             @if($shrimpMeatPounds > 0)
-            <tr>
+            <tr class="items">
                 <td>4</td>
                 <td>Shrimp Meat</td>
                 <td>{{$shrimpMeatPounds}}</td>
                 <td>{{$shrimpMeatUnitPrice}}</td>
-                <td>$ {{$totalCostOfShrimp}}</td>
+                <td>${{$totalCostOfShrimp}}</td>
             </tr>
-            @endif
-
-
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>Shipping</th>
-                <th>Subtotal</th>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> $ {{$shippingCost}}</td>
-                <td> $ {{$subTotal}}</td>
-            </tr>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>Final Cost</th>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>$ {{$finalCost}}</td>
-            </tr>        
+            @endif   
     </table>
+
+    </div>
+
+    <div class="total">
+        <div>Shipping: ${{$shippingCost}}</div>
+        <div>Subtotal: ${{$subTotal}}</div>
+        <div>Final: ${{$finalCost}}</div> 
+    </div>
 
     <div class="footer margin-top">
         <div>Thank you</div>
         <div>Red Island Lobster</div>
-
     </div>
 </body>
 
