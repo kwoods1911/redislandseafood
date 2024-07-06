@@ -1,74 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Quote: {{ $id }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ 'pdf.css' }}" type="text/css">
+    <title>Invoice</title>
 </head>
 
-<style>
-    /* h1{
-        color:red;
-    } */
-</style>
 <body>
 
-<div>
-    <h1>Quote Summary</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-            <table>
-                <tr>
-                    <th>Vendor</th>
-                </tr>
-                <tr>
-                    <td>Red Island Seafood</td>
-                </tr>
-                <tr>
-                <td>Sales Department</td>
-                </tr>
-                <tr>
-                <td>17 Something Street </td>
-                </tr>
-                <tr>
-                <td>Charlottetown, PE, C1A 5E6</td>
-                </tr>
-                <tr>
-                <td>Phone: (XXX) XXX-XXXX</td>
-                </tr>
+<table class="w-full">
+    <tr>
+        <td class="w-half">
+            <!-- <img src="{{ asset('RedIslandSeafoodLogo.png') }}" alt="red island seafood logo"> -->
+        </td>
+
+        <td class="w-half">
+            <h3>Quote # {{ $id }} </h3>
+        </td>
+    </tr>
+</table>
+
+    
+
+    <div class="margin-top">
+        <table class="w-full">
+        <tr>
+            <td class="w-half">
+                <div><h4>From:</h4></div>
+                <div>Red Island Seafood<div>
+                <div>Sales Department</div>
+                <div>17 Something Street </div>
+                <div>Charlottetown, PE, C1A 5E6</div>
+                <div>Phone: (1800) 902-1000</div>
+            </td>
+            <td class="w-half">
+                    <div><h4>To: </h4></div>
+                    <div>{{$companyName}}</div>
+                    <div>{{$companyEmail}}</div>
+                    <div>{{$companyAddress}} </div>
+                    <div>{{$companyCity}}, {{$province}}, {{$postalCode}}</div>
+                    <div>Phone: {{$companyPhoneNumber}}</div>
+                </td>
+        </tr>
+       
             </table>
-            </div>
 
-            <div class="col">
-                    <table>
-                        <tr>
-                            <th>Ship To: </th>
-                        </tr>
-
-                        <tr>
-                            <td>{{$companyName}}</td>
-                        </tr>
-                        <tr>
-                             <td>{{$companyEmail}}</td>
-                        </tr>
-                        <tr>
-                            <td>{{$companyAddress}} </td>
-                        </tr>
-                        <tr>
-                            <td>{{$companyCity}}, {{$province}}, {{$postalCode}}</td>
-                        </tr>
-                        <tr>
-                            <td>Phone: {{$companyPhoneNumber}}</td>
-                        </tr>
-                    </table>
-                    </div>
-        </div>
-    <!-- Ship To -->
     </div>
-    <div>
-        <h3>Quote # </h3>
+            
+
+    <!-- Ship To -->
         <table class="table">
             <tr>
                 <th>Item</th>
@@ -153,13 +136,12 @@
                 <td>$ {{$finalCost}}</td>
             </tr>        
     </table>
-</div>
 
-<footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</footer>
+    <div class="footer margin-top">
+        <div>Thank you</div>
+        <div>Red Island Lobster</div>
 
-
+    </div>
 </body>
 
 </html>
