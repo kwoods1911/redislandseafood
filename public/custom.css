@@ -105,6 +105,14 @@ body{
   min-height: 500px;
 }
 
+.submitted-quote{
+  min-height: 500px;
+}
+
+.container{
+  
+}
+
 .send-btn{
   background-color:rgb(245, 45, 0);
   color: rgb(246, 246, 246);
