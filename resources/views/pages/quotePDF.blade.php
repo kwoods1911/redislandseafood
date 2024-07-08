@@ -13,18 +13,14 @@
 <table class="w-full">
     <tr>
         <td class="w-half">
-            <!-- <img src="{{ asset('RedIslandSeafood  Logo.png') }}" alt="red island seafood logo"> -->
              <span class="logo">RED ISLAND SEAFOOD</span>
         </td>
-
+        
         <td class="w-half">
             <h3>Quote # {{ $id }} </h3>
         </td>
     </tr>
 </table>
-
-    
-
     <div class="margin-top">
         <table class="w-full">
         <tr>

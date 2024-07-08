@@ -109,9 +109,19 @@ body{
   min-height: 500px;
 }
 
-.container{
-  
+
+
+.margin-top {
+  margin-top: 1.25rem;
 }
+
+.custom-header{
+  background-color: rgb(245, 45, 0);
+  color:#FFFFFF;
+}
+
+
+
 
 .send-btn{
   background-color:rgb(245, 45, 0);
