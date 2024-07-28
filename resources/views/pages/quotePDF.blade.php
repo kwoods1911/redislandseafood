@@ -30,7 +30,7 @@
                 <div>Sales Department</div>
                 <div>17 Something Street </div>
                 <div>Charlottetown, PE, C1A 5E6</div>
-                <div>Phone: (1800) 902-1000</div>
+                <div>Phone: 1 (800) 902-1000</div>
             </td>
             <td class="w-half">
                     <div><h4>To: </h4></div>
@@ -98,9 +98,9 @@
     </div>
 
     <div class="total">
-        <div>Shipping: ${{$shippingCost}}</div>
-        <div>Subtotal: ${{$subTotal}}</div>
-        <div>Final: ${{$finalCost}}</div> 
+        <div>Shipping: $ {{$shippingCost}}</div>
+        <div>Subtotal: $ {{$subTotal}}</div>
+        <div>Final: $ {{$finalCost}}</div> 
     </div>
 
     <div class="footer margin-top">
