@@ -11,6 +11,7 @@ togglebtn.addEventListener('click',()=>{
 // when button is clicked check state of dropdown.
 
 let style = getComputedStyle(dropDownMenu);
+
 if(style.display === 'none'){
     dropDownMenu.style.display = 'block'
 }else if(style.display === 'block'){

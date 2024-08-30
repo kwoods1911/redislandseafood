@@ -200,13 +200,33 @@ body{
 }
 
 
+.show{
+display: block;
+
+}
 
 /* Media Queries */
-@media (max-width: 500px){
+@media (max-width: 800px){
+  
   .navbar-text{
     visibility: hidden;
-  }  
+  }
+  
+
+  #navbarNav{
+    margin: 16px 16px;
+  }
+  #nav-link{
+    padding: 8px;
+  }
+  .nav-link:hover{
+    color:#FFFFFF;
+    background-color: rgb(245, 45, 0);
+  }
 }
+
+
+
 
 
 
