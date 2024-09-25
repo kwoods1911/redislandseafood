@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c1fff6f96513ad269e142315d876549",
+    "content-hash": "c3c3ec3398c68fc1b0b99d5ffbf2da75",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -3609,6 +3609,74 @@
                 "source": "https://github.com/MyIntervals/PHP-CSS-Parser/tree/v8.5.1"
             },
             "time": "2024-02-15T16:41:13+00:00"
+        },
+        {
+            "name": "stayallive/laravel-mail-css-inliner",
+            "version": "v4.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stayallive/laravel-mail-css-inliner.git",
+                "reference": "de4080ba1becd51ebe2aaec2a534dd9697d0873a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stayallive/laravel-mail-css-inliner/zipball/de4080ba1becd51ebe2aaec2a534dd9697d0873a",
+                "reference": "de4080ba1becd51ebe2aaec2a534dd9697d0873a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "laravel/framework": "^9||^10||^11.0",
+                "php": "^8.0.2",
+                "tijsverkoyen/css-to-inline-styles": "^2.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.14",
+                "phpunit/phpunit": "^9||^10",
+                "symfony/mailer": "^6.0||^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Stayallive\\LaravelMailCssInliner\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stayallive\\LaravelMailCssInliner\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Bouma",
+                    "email": "alex@bouma.me"
+                }
+            ],
+            "description": "Inline the CSS of your Laravel HTML emails.",
+            "homepage": "https://github.com/stayallive/laravel-mail-css-inliner",
+            "keywords": [
+                "css",
+                "laravel",
+                "laravel-package",
+                "mailer"
+            ],
+            "support": {
+                "issues": "https://github.com/stayallive/laravel-mail-css-inliner/issues",
+                "source": "https://github.com/stayallive/laravel-mail-css-inliner/tree/v4.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/stayallive",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-04-18T09:50:01+00:00"
         },
         {
             "name": "symfony/console",

@@ -42,8 +42,7 @@ class ContactController extends Controller
 
         // then send an automated reply.
         $senderMessage = "Thanks for your message we will reply within 24 hours.";
-        $test = Mail::to($email)->send(new SendMessageToEndUser($name,$senderMessage,$mailData));
-        
+        $test = Mail::to($email)->send(new SendMessageToEndUser($name,$senderMessage,$message));
         $contacts->save();
         
         return redirect()->route('contact')->with('success', 'You message was successfully sent !');
