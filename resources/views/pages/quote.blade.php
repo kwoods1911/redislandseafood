@@ -8,7 +8,7 @@
 
 <div class="container quote-container">
 <h1 class="page-header-text">Request Quote</h1>
-    @if($errors->any())
+@if($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -19,7 +19,11 @@
 @endif
     <form action="/quote-summary" method="post">
     @csrf
-    <div class="form-group">
+
+    <div class="container">
+        <div class="row">
+    <div class="col-sm">
+            <div class="form-group">
         <label class="label-styling" for="company_name">Company Name:</label>
         <input type="text" name="company_name" class="form-control">
     </div>
@@ -49,29 +53,33 @@
         <input type="text" name="company_province" class="form-control">
     </div>
     
-<!-- Validation is needed here -->
+
     <div class="form-group">
         <label class="label-styling" for="company_postal_code">Postal Code:</label>
         <input type="text" name="company_postal_code" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" class="form-control">
     </div>
+</div>
 
+
+
+
+<div class="col-sm">      
         <div class="form-group">
-            <label class="label-styling" for="min_lobster_size">Lobster Range</label>
-            <select name="min_lobster_size">
+            <label class="label-styling" for="min_lobster_size">Lobster Size</label>
+            <br>
+            <label>Min size:</label>
+            <select class="form-select" name="min_lobster_size">
                 <option value="1">1 lbs</option>
                 <option value="1.5">1.5 lbs</option>
                 <option value="2">2 lbs</option>
             </select>
-            <small>lbs</small>
 
-            <span>to:</span>
-        
-        <select name="max_lobster_size">
+        <label>Max size:</label>
+        <select class="form-select" name="max_lobster_size">
                 <option value="1">1 lbs</option>
                 <option value="1.5">1.5 lbs</option>
                 <option value="2">2 lbs</option>
         </select>
-        <small>lbs</small>
         </div>
 
         <div class="form-group">
@@ -115,13 +123,14 @@
                 {{ session('error') }}
             </div>
         @endif
-        
+            </div>
+        </div>
+
+    </div>
         <button type="submit" class="btn btn-primary send-btn">Send</button>
     </form>
 </body>
 </div>
-
-
 
 @else
 <body>

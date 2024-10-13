@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a id="logo" class="navbar-brand" href="/">Red Island Seafood</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  
+<a id="logo" class="navbar-brand" href="/">Red Island Seafood</a>
+  
+  <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
@@ -20,7 +23,6 @@
       <li class="nav-item">
         <a class="nav-link" href="/contact">Contact</a>
       </li>
-
 
       @auth
             <li class="nav-item">
@@ -59,10 +61,14 @@
     </ul>
 
 
-  </div>
-  <span class="navbar-text">
+
+
+
+</div>
+
+<span class="navbar-text">
         1-900-LOBSTER
-    </span>
+</span>
 </nav>
 
 

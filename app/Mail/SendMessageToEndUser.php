@@ -55,4 +55,17 @@ class SendMessageToEndUser extends Mailable
     {
         return [];
     }
+
+    public function build()
+    {
+        return $this->view('emails.automated_reply_template')
+                ->subject('Red Island Seafood Automated Reply')
+                ->with([
+                    'name' => $this->name,
+                    'senderMessage' => $this->senderMessage,
+                    'mailData' => $this->mailData,
+                ])
+                ->withCssInliner(public_path('email.css'));
+                       
+    }
 }

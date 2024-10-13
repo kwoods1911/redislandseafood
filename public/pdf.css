@@ -1,0 +1,60 @@
+h1{
+    color:red;
+}
+
+
+.w-full {
+    width: 100%;
+}
+.w-half {
+    width: 50%;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+table.products {
+    font-size: 0.875rem;
+}
+table.products tr {
+    background-color:rgb(245, 45, 0);
+}
+table.products th {
+    color: #ffffff;
+    padding: 0.5rem;
+}
+table tr.items {
+    background-color: rgb(241 245 249);
+}
+table tr.items td {
+    padding: 0.5rem;
+}
+
+.margin-top {
+    margin-top: 1.25rem;
+}
+
+.table-header{
+
+}
+
+
+.footer{
+    font-size: 0.875rem;
+    padding: 1rem;
+    background-color: rgb(241 245 249);
+}
+
+.total{
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+}
+
+.logo{
+    padding: 1rem;
+    color: #fff;
+    background-color:rgb(245, 45, 0);
+
+}

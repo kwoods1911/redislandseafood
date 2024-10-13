@@ -3,19 +3,12 @@
 @section('content')
 <body>
 <div>
-    <span>
-        LOGO
-        <img src="#" alt="">
-    </span>
-</div>
-<div>
-    <h1>Quote Summary</h1>
     <div class="container">
         <div class="row">
             <div class="col">
             <table>
                 <tr>
-                    <th>Vendor</th>
+                    <th>From</th>
                 </tr>
                 <tr>
                     <td>Red Island Seafood</td>
@@ -30,7 +23,7 @@
                 <td>Charlottetown, PE, C1A 5E6</td>
                 </tr>
                 <tr>
-                <td>Phone: (XXX) XXX-XXXX</td>
+                <td>Phone: (800) 902-1000</td>
                 </tr>
             </table>
             </div>
@@ -38,7 +31,7 @@
             <div class="col">
                     <table>
                         <tr>
-                            <th>Ship To: </th>
+                            <th>To: </th>
                         </tr>
                         <tr>
                             <td>{{$information['company_name']}}</td>
@@ -58,26 +51,25 @@
                     </table>
             </div>
         </div>
-    <!-- Ship To -->
     </div>
-    <div>
-        <h3>Quote # </h3>
+
+    <div class="margin-top">
         <table class="table">
-            <tr>
+            <tr class="custom-header">
                 <th>Item</th>
                 <th>Description</th>
                 <th>Quantity</th>
                 <th>Unit Price</th>
                 <th>Total</th>
             </tr>
-            <!-- apply -->
+            
             @if($information['total_live_lobster_pounds'] > 0)
             <tr>
                 <td>1</td>
                 <td>Live Lobster ({{$information['min_lobster_size']}} lbs - {{$information['max_lobster_size']}} lbs )</td>
                 <td>{{$information['total_live_lobster_pounds']}}</td>
                 <td>{{$information['live_lobster_unit_price']}}</td>
-                <td>{{$information['total_cost_of_live_lobster']}}</td>
+                <td>$ {{$information['total_cost_of_live_lobster']}}</td>
             </tr>
             @endif
 
@@ -85,9 +77,9 @@
             <tr>
                 <td>2</td>
                 <td>Cooked Lobster </td>
-                <td>{{$information['total_frozen_lobster_pounds']}}</td>
+                <td> {{$information['total_frozen_lobster_pounds']}}</td>
                 <td>{{$information['frozen_lobster_unit_price']}}</td>
-                <td>{{$information['total_cost_of_frozen_lobster']}}</td>
+                <td>$ {{$information['total_cost_of_frozen_lobster']}}</td>
             </tr>
             @endif
             
@@ -97,7 +89,7 @@
                 <td>Clam Meat</td>
                 <td>{{$information['total_clam_pounds']}}</td>
                 <td>{{$information['clam_meat_unit_price']}}</td>
-                <td>{{$information['total_cost_of_clam_meat']}}</td>
+                <td>$ {{$information['total_cost_of_clam_meat']}}</td>
             </tr>
             @endif
 
@@ -107,7 +99,7 @@
                 <td>Shrimp Meat</td>
                 <td>{{$information['total_cost_of_shrimp']}}</td>
                 <td>{{$information['shrimp_meat_unit_price']}}</td>
-                <td>{{$information['total_cost_of_shrimp']}}</td>
+                <td>$ {{$information['total_cost_of_shrimp']}}</td>
             </tr>
             @endif
 
@@ -124,8 +116,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td> $ {{$information['shipping']}}</td>
-                <td> $ {{$information['sub_total']}}</td>
+                <td>$ {{$information['shipping']}}</td>
+                <td>$ {{$information['sub_total']}}</td>
             </tr>
             <tr>
                 <th></th>
