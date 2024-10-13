@@ -63,8 +63,9 @@ class SendMessageToEndUser extends Mailable
                 ->with([
                     'name' => $this->name,
                     'senderMessage' => $this->senderMessage,
-                    'mailData' => $this->mailData
+                    'mailData' => $this->mailData,
                 ])
                 ->withCssInliner(public_path('email.css'));
+                       
     }
 }

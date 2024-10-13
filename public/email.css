@@ -1,7 +1,60 @@
-span{
-    color: red;
+body{
+    font-family: Arial, sans-serif; 
+    background-color: #f4f4f4; 
+    padding: 20px;
+}
+
+table{
+    max-width: 600px; 
+    margin: auto; 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.email-client-header{
+    color:#fff;
+    background-color: #333;
+    padding: 8px 16px;
+}
+
+.email-client-content{
+
+}
+
+td{
+    text-align: center;
+}
+
+img{
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.email-content{
+    padding: 20px; 
+    text-align: left;
+}
+
+.email-footer{
+    padding: 20px; 
+    text-align: center; 
+    font-size: 12px; 
+    color: #fff;
+    background-color: #333;
+}
+
+.email-footer{
+    color: #3490dc;
+}
+
+
+h1{
+    color: #333; 
 }
 
 p{
-    color:green;
+    line-height: 1.6;
 }
