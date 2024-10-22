@@ -4,7 +4,7 @@
 @section('content')
 <body>
     <div class="container aboutus-container">
-        <h1 class="page-header-text">RED ISLAND SEAFOOD - ATLANTIC CANADA'S MOST AFFORDABLE LOBSTER</h1>
+        <h1 class="page-header-text">RED ISLAND SEAFOODddddd - ATLANTIC CANADA'S MOST AFFORDABLE LOBSTER</h1>
         
             <div class="row">
 
