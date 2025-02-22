@@ -24,6 +24,11 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
+
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
+
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -40,7 +45,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 Route::get('/', function () {
     return view('pages.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
