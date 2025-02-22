@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\PDFController;
+
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
@@ -17,9 +21,8 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
 });
-
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -27,7 +30,7 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-    return redirect('/dashboard');
+    return redirect('/');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
@@ -35,8 +38,8 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/', function () {
+    return view('pages.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -44,5 +47,57 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
+
+Route::get('/product', function() {
+    return view('pages.products');
+});
+
+Route::get('/about', function() {
+    return view('pages.aboutus');
+});
+
+Route::get('/quote', function(){
+    return view('pages.quote');
+})->name('quote');
+
+Route::get('/contact', function(){
+    return view('pages.contactus');
+})->name('contact');
+
+
+Route::post('/store-contact',[ContactController::class,'store']);
+
+Route::post('/quote-summary', [QuoteController::class,'view']);
+
+Route::post('/quote-submitted', [QuoteController::class,'store'])->name('quote-submitted');
+
+Route::get('/generate-pdf',[PDFController::class, 'generateQuotePDF'])->name('generate-pdf');
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->middleware('auth.session','admin')->name('admin');
+
+Route::get('/admin/view/quote/{id}', [App\Http\Controllers\AdminController::class, 'view']);
+
+Route::get('/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete']);
+
+Route::get('/privacy',function(){
+    return view('pages.privacy');
+});
+
+Route::get('/registration', function(){
+    return view('auth.register');
+})->name('registration');
+
+Route::get('/terms',function(){
+    return view('pages.termsandconditions');
+});
+
+
 
 require __DIR__.'/auth.php';
