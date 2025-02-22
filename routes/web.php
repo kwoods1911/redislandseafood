@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PDFController;
+
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +23,33 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 Route::get('/', function () {
     return view('pages.index');
 });
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::get('/', function () {
+    return view('pages.index');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+
 
 Route::get('/product', function() {
     return view('pages.products');
@@ -38,12 +68,6 @@ Route::get('/contact', function(){
 })->name('contact');
 
 
-Route::get('/registration', function(){
-    return view('auth.register');
-})->name('registration');
-
-
-
 Route::post('/store-contact',[ContactController::class,'store']);
 
 Route::post('/quote-summary', [QuoteController::class,'view']);
@@ -52,21 +76,7 @@ Route::post('/quote-submitted', [QuoteController::class,'store'])->name('quote-s
 
 Route::get('/generate-pdf',[PDFController::class, 'generateQuotePDF'])->name('generate-pdf');
 
-Auth::routes([
-    'verify' => true
-]);
 
-
-Route::get('/email/verify', function () {
-    return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
-
-
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
- 
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -80,8 +90,14 @@ Route::get('/privacy',function(){
     return view('pages.privacy');
 });
 
+Route::get('/registration', function(){
+    return view('auth.register');
+})->name('registration');
 
 Route::get('/terms',function(){
     return view('pages.termsandconditions');
 });
 
+
+
+require __DIR__.'/auth.php';
