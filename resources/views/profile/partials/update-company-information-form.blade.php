@@ -9,13 +9,12 @@
         </p>
     </header>
 
-<form action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+<form method="post" action="{{ route('profile.updatecompanyinfo') }}" class="mt-6 space-y-6">
     @csrf
-    @method('patch')
 
     <div>
             <x-input-label for="company_name" :value="__('Company Name')" />
-            <x-text-input id="company_name" name="company_name" type="text" class="mt-1 block w-full" required autofocus autocomplete="organization" />
+            <x-text-input id="company_name" name="company_name" type="text" :value="old('company_name', $user->company_name)" class="mt-1 block w-full" required autofocus autocomplete="organization" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
     </div>
 
@@ -49,6 +48,11 @@
             <x-input-label for="company_postal_code" :value="__('Postal Code')" />
             <x-text-input id="company_postal_code" name="company_postal_code" type="text" class="mt-1 block w-full" required autofocus autocomplete="postal-code" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
+    </div>
+
+
+    <div class="flex items-center gap-4">
+        <x-primary-button>{{ __('Save') }}</x-primary-button>
     </div>
 </form>
 
