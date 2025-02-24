@@ -21,32 +21,32 @@
 
     <div>
             <x-input-label for="company_email" :value="__('Company Email')" />
-            <x-text-input id="company_email" name="company_email" type="text" class="mt-1 block w-full" required autofocus autocomplete="email" />
+            <x-text-input id="company_email" name="company_email" type="text" :value="old('company_email', $user->company_email)" class="mt-1 block w-full" required autofocus autocomplete="email" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
     </div>
 
 
     <div>
             <x-input-label for="company_address" :value="__('Company Address')" />
-            <x-text-input id="company_address" name="company_address" type="text" class="mt-1 block w-full" required autofocus autocomplete="address-level2" />
+            <x-text-input id="company_address" name="company_address" type="text" :value="old('company_address', $user->company_address)" class="mt-1 block w-full" required autofocus autocomplete="address-level2" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
     </div>
 
     <div>
             <x-input-label for="company_city" :value="__('Company City')" />
-            <x-text-input id="company_city" name="company_city" type="text" class="mt-1 block w-full" required autofocus autocomplete="address-level2" />
+            <x-text-input id="company_city" name="company_city" type="text" :value="old('company_city', $user->company_city)" class="mt-1 block w-full" required autofocus autocomplete="address-level2" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
     </div>
 
     <div>
             <x-input-label for="company_province" :value="__('Company Province')" />
-            <x-text-input id="company_province" name="company_province" type="text" class="mt-1 block w-full" required autofocus autocomplete="address-level1" />
+            <x-text-input id="company_province" name="company_province" type="text" :value="old('company_province', $user->company_province)" class="mt-1 block w-full" required autofocus autocomplete="address-level1" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
     </div>
 
     <div>
             <x-input-label for="company_postal_code" :value="__('Postal Code')" />
-            <x-text-input id="company_postal_code" name="company_postal_code" type="text" class="mt-1 block w-full" required autofocus autocomplete="postal-code" />
+            <x-text-input id="company_postal_code" name="postal_code" type="text" :value="old('postal_code', $user->postal_code)" class="mt-1 block w-full" required autofocus autocomplete="postal-code" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
     </div>
 

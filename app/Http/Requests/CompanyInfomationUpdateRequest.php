@@ -23,6 +23,13 @@ class CompanyInfomationUpdateRequest extends FormRequest
     {
         return [
             'company_name' => ['required', 'string', 'max:255'],
+            'company_email' => ['required', 'string', 'max:255'],
+            'company_city' => ['required', 'string', 'max:255'],
+            'company_email' => ['required', 'string', 'max:255'],
+            'company_address' => ['required', 'string', 'max:255'],
+            'company_city' => ['required', 'string', 'max:255'],
+            'company_province' => ['required', 'string', 'max:255'],
+            'postal_code' => ['required', 'string', 'max:255'],
         ];
     }
 }

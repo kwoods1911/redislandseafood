@@ -39,11 +39,11 @@ class ProfileController extends Controller
     }
 
 
-    public function updateCompanyInfooooo(CompanyInfomationUpdateRequest $request){
-        dd($request);
+    public function updateCompanyInfo(CompanyInfomationUpdateRequest $request){
+       
         $request->user()->fill($request->validated());
-
         $request->user()->save();
+
         return Redirect::route('profile.edit');
     }
 
