@@ -3,6 +3,14 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
         </h2>
+
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a href="{{ route('customer-quote.view') }}">My Quotes</a>
+        </h2>
+
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a href="#">My Orders</a>
+        </h2>
     </x-slot>
 
     <div class="py-12">
