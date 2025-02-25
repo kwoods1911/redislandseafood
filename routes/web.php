@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CustomerQuoteController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PDFController;
 
@@ -50,7 +51,11 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/update-company-info', [ProfileController::class, 'updateCompanyInfo'])->name('profile.updatecompanyinfo');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    Route::get('/customer-quote', [CustomerQuoteController::class, 'view'])->name('customer-quote.view');
 });
 
 
