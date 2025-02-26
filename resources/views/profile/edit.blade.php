@@ -3,6 +3,14 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
         </h2>
+
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a href="{{ route('customer-quote.list') }}">My Quotes</a>
+        </h2>
+
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a href="#">My Orders</a>
+        </h2>
     </x-slot>
 
     <div class="py-12">
@@ -10,6 +18,12 @@
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
                     @include('profile.partials.update-profile-information-form')
+                </div>
+            </div>
+
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    @include('profile.partials.update-company-information-form')
                 </div>
             </div>
 

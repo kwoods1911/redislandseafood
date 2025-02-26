@@ -34,6 +34,13 @@
             </li>
 
 
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route ('profile.edit') }}">
+                User Profile
+              </a>
+            </li>
+
+
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf
             </form>
