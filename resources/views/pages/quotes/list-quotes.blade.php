@@ -55,7 +55,7 @@
         <td>
             <div>
                 <a href="#">Download PDF</a>
-                <a href="{{ route('customer-quote.list') }}"> Details</a>
+                <a href="{{ route('customer-quote.details', ['id' => $quote->id]) }}"> Details</a>
             </div>
         </td>
         <td>

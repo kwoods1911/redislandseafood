@@ -57,7 +57,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/customer-quote', [CustomerQuoteController::class, 'listQuotes'])->name('customer-quote.list');
 
-    Route::get('/quote-details',[CustomerQuoteController::class, 'viewQuote'])->name('customer-quote.details');
+    Route::get('/quote-details/{id}',[CustomerQuoteController::class, 'viewQuote'])->name('customer-quote.details');
 });
 
 
