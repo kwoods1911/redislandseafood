@@ -14,11 +14,11 @@ class CustomerQuoteController extends Controller
         // dd($quotes, auth()->user()->id);
 
         //get customer information
-        return view('pages.quotes.view-quote')->with('quotes', $quotes);
+        return view('pages.quotes.list-quotes')->with('quotes', $quotes);
     }
 
 
     public function viewQuote(){
-        
+
     }
 }
