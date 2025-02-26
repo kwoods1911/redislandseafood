@@ -55,7 +55,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    Route::get('/customer-quote', [CustomerQuoteController::class, 'view'])->name('customer-quote.view');
+    Route::get('/customer-quote', [CustomerQuoteController::class, 'listQuotes'])->name('customer-quote.list');
+
+    Route::get('/quote-details',[CustomerQuoteController::class, 'viewQuote'])->name('customer-quote.details');
 });
 
 

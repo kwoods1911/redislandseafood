@@ -35,7 +35,8 @@
         <th>Clam Meat (lbs)</th>
         <th>Shrimp(lbs)</th>
         <th>Price</th>
-        <th>Actions</th> 
+        <th>Actions</th>
+        <th>Confirm Order</th> 
         <th>Delete</th>   
     </tr>
 
@@ -53,10 +54,12 @@
 
         <td>
             <div>
-                <a href="#">View Details</a>
-                <a href="#">Download</a>
-                <a href="#">Edit</a>
+                <a href="#">Download PDF</a>
+                <a href="{{ route('customer-quote.list') }}"> Details</a>
             </div>
+        </td>
+        <td>
+            <a href="#">Confirm Order</a>
         </td>
         <td>
             <div>

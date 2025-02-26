@@ -5,7 +5,7 @@
         </h2>
 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <a href="{{ route('customer-quote.view') }}">My Quotes</a>
+            <a href="{{ route('customer-quote.list') }}">My Quotes</a>
         </h2>
 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
